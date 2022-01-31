@@ -11,7 +11,7 @@ import './Styles/style.scss';
 
 function App() {
   return (
-    <div>
+    <>
       <NavBar />
       <Routes>
         <Route exact path="/" element={<Home />} />
@@ -21,7 +21,7 @@ function App() {
         <Route path="/basket" element={<Basket />} />
         <Route path="/admin" element={<Admin />} />
       </Routes>
-    </div>
+    </>
   );
 }
 

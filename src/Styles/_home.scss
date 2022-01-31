@@ -1,0 +1,53 @@
+@mixin size ($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+#home {
+  // <<   Hero Section    >>
+  #heroSection {
+    @include size(100%, 86vh);
+    background: url(../images/heroSection.jpg) no-repeat 84% fixed;
+    background-size: cover;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    h1 {
+      font-weight: 600;
+      font-size: 4.5rem;
+      line-height: 5.5rem;
+      text-align: center;
+      color: $primaryColor;
+      span {
+        color: $pink;
+      }
+    }
+    p {
+      margin-top: 2rem;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+    button {
+      border: none;
+      border-radius: 7px;
+      margin-top: 2rem;
+      width: 18.75rem;
+      height: 5.3125rem;
+      background-color: $pink;
+      color: white;
+      font-weight: 600;
+      font-size: 1.5rem;
+      text-align: center;
+      &:hover {
+        background-color: $lightBlue;
+      }
+    }
+  }
+
+  // <<   Inspiration    >>
+  #introduction {
+    @include size(100%, 100vh);
+  }
+}
