@@ -2,18 +2,27 @@
   width: $w;
   height: $h;
 }
+@mixin flexInfo($direction, $justifyC, $alignC, $alignI){
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justifyC;
+  align-content: $alignC;
+  align-items: $alignI;
+}
+@mixin imageStray ($pos, $width, $top, $left){
+  position: $pos;
+  width: $width;
+  top: $top;
+  left: $left;
+}
 
 #home {
   // <<   Hero Section    >>
   #heroSection {
     @include size(100%, 86vh);
-    background: url(../images/heroSection.jpg) no-repeat 84% fixed;
+    @include flexInfo(column, center, center, center);
+    background: url(../images/heroSection.jpg) no-repeat 84%;
     background-size: cover;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
     h1 {
       font-weight: 600;
       font-size: 4.5rem;
@@ -49,5 +58,56 @@
   // <<   Inspiration    >>
   #introduction {
     @include size(100%, 100vh);
+    .mobile { display: none; }
+    h1 {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 3.75rem;
+      line-height: 4.5625rem;
+      color: $lightBlue;
+      span {
+        color: $pink;
+      }
+    }
+    .desktop {
+      position: relative;
+      max-width: 100%;
+      top: 0;
+      left: 0;
+    }
+    .ballImg { @include imageStray(absolute, 19rem, 35rem, 0); }
+    .dotsImg { @include imageStray(absolute, 35rem, 18rem, 52rem); }
+    .intro1Img { @include imageStray(absolute, 65rem, 12rem, 8rem); }
+    .intro2Img { @include imageStray(absolute, 35rem, 0, 53rem); }
+    
+    @media only screen and (max-width: 991px) {
+      @include size(100%, 50vh);
+      @include flexInfo(column, center, center, center);
+      .desktop { display: none; }
+      .mobile { display: block; }
+      h1 { text-align: center; }
+    }
+  }
+
+  // <<   Categories    >>
+  #categories {
+    @include size(100%, 100vh);
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    grid-template-rows: repeat(2, 1fr); 
+    gap: 2em 2em; 
+    grid-template-areas: 
+    "hats bags shoes"
+    "accessories accessories shoes";
+    .hats { grid-area: hats; border: 1px solid green;}
+    .bags { grid-area: bags; border: 1px solid red; }
+    .shoes { grid-area: shoes; border: 1px solid blue; }
+    .accessories { grid-area: accessories; border: 1px solid purple; }
+    @media only screen and (max-width: 991px) {
+      grid-template-columns: repeat(2, 1fr); 
+      grid-template-areas: 
+      "hats bags"
+      "accessories shoes";
+    }
   }
 }
