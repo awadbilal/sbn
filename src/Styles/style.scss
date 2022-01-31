@@ -1,25 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import "~bootstrap/scss/bootstrap";
 @import "./variables";
-@import './navbar';
+@import "./navbar";
+@import "./home";
 
 .placeHolder {
   color: $placeholder;
   opacity: 0.8;
 }
-
 .productCard {
   border: 2px solid $productBorder;
   box-sizing: border-box;
   border-radius: 10px;
 }
-
 .underLine {
   border: 2px solid $productBorder;
 }
-
 body {
   font-family: 'Montserrat', sans-serif;
   color: $primaryColor;
   margin: 0;
   padding: 0;
+  min-width: 100%;
+  min-height: 100%; 
+}
+body, h1, h2, h3, h4, h5, h6, p, span, button, a {
+  font-family: 'Montserrat', sans-serif;
+}
+.row {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+* {
+  box-sizing: border-box;
 }
