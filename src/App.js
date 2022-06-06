@@ -1,12 +1,14 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
-import NavBar from "./Containers/NavBar";
-import Home from "./Containers/Home";
-import Shop from "./Containers/Shop";
-import AboutUs from "./Containers/AboutUs";
-import ContactUs from "./Containers/ContactUs";
-import Basket from "./Containers/Basket";
-import Admin from "./Containers/Admin";
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import NavBar from './Components/Shared/Navbar';
+import User from './Components/User';
+import Home from './Components/Home';
+import Shop from './Components/Shop';
+import AboutUs from './Components/About';
+import ContactUs from './Components/ContactUs';
+import Cart from './Components/Cart';
+import Admin from './Components/Admin';
+import Footer from './Components/Shared/Footer';
 import './Styles/style.scss';
 
 function App() {
@@ -14,13 +16,16 @@ function App() {
     <>
       <NavBar />
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/contact-us" element={<ContactUs />} />
-        <Route path="/basket" element={<Basket />} />
-        <Route path="/admin" element={<Admin />} />
+        <Route path='*' element={<Home />} />
+        <Route exact path='/' element={<Home />} />
+        <Route exact path='/user' element={<User />} />
+        <Route exact path='/shop' element={<Shop />} />
+        <Route exact path='/about-us' element={<AboutUs />} />
+        <Route exact path='/contact-us' element={<ContactUs />} />
+        <Route exact path='/cart' element={<Cart />} />
+        <Route exact path='/admin' element={<Admin />} />
       </Routes>
+      <Footer />
     </>
   );
 }

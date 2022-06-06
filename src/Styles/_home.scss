@@ -1,19 +1,24 @@
-@mixin size ($w, $h) {
+@mixin size($w, $h) {
   width: $w;
   height: $h;
 }
-@mixin flexInfo($direction, $justifyC, $alignC, $alignI){
+@mixin flexInfo($direction, $justifyC, $alignC, $alignI) {
   display: flex;
   flex-direction: $direction;
   justify-content: $justifyC;
   align-content: $alignC;
   align-items: $alignI;
 }
-@mixin imageStray ($pos, $width, $top, $left){
+@mixin imageStray($pos, $width, $top, $left) {
   position: $pos;
   width: $width;
   top: $top;
   left: $left;
+}
+@mixin responsiveRemove() {
+  @media only screen and (max-width: 992px) {
+    display: none;
+  }
 }
 
 #home {
@@ -58,7 +63,9 @@
   // <<   Inspiration    >>
   #introduction {
     @include size(100%, 100vh);
-    .mobile { display: none; }
+    .mobile {
+      display: none;
+    }
     h1 {
       font-style: normal;
       font-weight: 500;
@@ -75,39 +82,124 @@
       top: 0;
       left: 0;
     }
-    .ballImg { @include imageStray(absolute, 19rem, 35rem, 0); }
-    .dotsImg { @include imageStray(absolute, 35rem, 18rem, 52rem); }
-    .intro1Img { @include imageStray(absolute, 65rem, 12rem, 8rem); }
-    .intro2Img { @include imageStray(absolute, 35rem, 0, 53rem); }
-    
+    .ballImg {
+      @include imageStray(absolute, 19rem, 35rem, 0);
+    }
+    .dotsImg {
+      @include imageStray(absolute, 35rem, 18rem, 52rem);
+    }
+    .intro1Img {
+      @include imageStray(absolute, 65rem, 12rem, 8rem);
+    }
+    .intro2Img {
+      @include imageStray(absolute, 35rem, 0, 53rem);
+    }
+
     @media only screen and (max-width: 991px) {
       @include size(100%, 50vh);
       @include flexInfo(column, center, center, center);
-      .desktop { display: none; }
-      .mobile { display: block; }
-      h1 { text-align: center; }
+      .desktop {
+        display: none;
+      }
+      .mobile {
+        display: block;
+      }
+      h1 {
+        text-align: center;
+      }
     }
   }
 
   // <<   Categories    >>
   #categories {
     @include size(100%, 100vh);
-    display: grid; 
-    grid-template-columns: repeat(3, 1fr); 
-    grid-template-rows: repeat(2, 1fr); 
-    gap: 2em 2em; 
-    grid-template-areas: 
-    "hats bags shoes"
-    "accessories accessories shoes";
-    .hats { grid-area: hats; border: 1px solid green;}
-    .bags { grid-area: bags; border: 1px solid red; }
-    .shoes { grid-area: shoes; border: 1px solid blue; }
-    .accessories { grid-area: accessories; border: 1px solid purple; }
-    @media only screen and (max-width: 991px) {
-      grid-template-columns: repeat(2, 1fr); 
-      grid-template-areas: 
-      "hats bags"
-      "accessories shoes";
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 2em 2em;
+    grid-template-areas:
+      'hats bags shoes'
+      'accessories accessories shoes';
+    .hats {
+      grid-area: hats;
+    }
+    .bags {
+      grid-area: bags;
+    }
+    .shoes {
+      grid-area: shoes;
+    }
+    .accessories {
+      grid-area: accessories;
+    }
+    .responsiveShow {
+      display: none !important;
+    }
+    @media only screen and (max-width: 992px) {
+      .responsiveHide {
+        display: none !important;
+      }
+      .responsiveShow {
+        display: block !important;
+      }
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas:
+        'hats bags'
+        'accessories shoes';
+    }
+    .hats,
+    .bags,
+    .shoes,
+    .accessories {
+      @include flexInfo(column, center, center, center);
+      align-self: center;
+      position: relative;
+      width: fit-content;
+      height: fit-content;
+    }
+    .categoryImage {
+      max-width: 100%;
+      max-height: 100%;
+      display: block;
+    }
+    .hoverOverlay {
+      @include responsiveRemove();
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(238, 51, 100, 0.75);
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+    .hoverOverlay--blur {
+      backdrop-filter: blur(5px);
+    }
+    .hoverOverlay > * {
+      transform: translateY(20px);
+      transition: transform 0.25s;
+    }
+    .hoverOverlay:hover {
+      opacity: 1;
+      cursor: pointer;
+    }
+    .hoverOverlay:hover > * {
+      transform: translateY(0);
+    }
+    .image__title {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 3rem;
+      text-align: center;
+      letter-spacing: 0.2em;
+      color: #ffffff;
     }
   }
 }

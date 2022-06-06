@@ -1,11 +1,11 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import Dots from '../../images/dots.png';
-import Ball from '../../images/yellowBall.png';
-import Intro1 from '../../images/intro1.jpg';
-import Intro2 from '../../images/intro2.jpg';
+import Dots from '../../../images/dots.png';
+import Ball from '../../../images/yellowBall.png';
+import Intro1 from '../../../images/intro1.jpg';
+import Intro2 from '../../../images/intro2.jpg';
 
-function Introduction() {
+function Index() {
   return (
     <Container id="introduction" className="pt-5 pb-5 mt-3">
       <h1 className="mobile">Designed & Painted <span>to match your perfect<br />theme!</span></h1>
@@ -20,4 +20,4 @@ function Introduction() {
   );
 }
 
-export default Introduction;
+export default Index;

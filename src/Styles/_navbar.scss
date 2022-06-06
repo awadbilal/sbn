@@ -1,5 +1,4 @@
 #navbar {
-  height: 8.75rem;
   font-style: normal;
   font-weight: 500;
   font-size: 1.5rem;
@@ -28,7 +27,7 @@
       color: $lightBlue;
     }
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       z-index: -1;
       right: 0;
@@ -44,6 +43,17 @@
         right: auto;
         width: 100%;
       }
+    }
+  }
+  .responsiveNone {
+    @media only screen and (max-width: 992px) {
+      display: none;
+    }
+  }
+  .responsiveShow {
+    display: none;
+    @media only screen and (max-width: 992px) {
+      display: block;
     }
   }
 }

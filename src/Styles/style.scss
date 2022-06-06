@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-@import "~bootstrap/scss/bootstrap";
-@import "./variables";
-@import "./navbar";
-@import "./home";
+@import '~bootstrap/scss/bootstrap';
+@import './variables';
+@import './navbar';
+@import './home';
+@import './customOrder';
+@import './footer';
 
 .placeHolder {
   color: $placeholder;
@@ -22,9 +24,19 @@ body {
   margin: 0;
   padding: 0;
   min-width: 100%;
-  min-height: 100%; 
+  min-height: 100%;
 }
-body, h1, h2, h3, h4, h5, h6, p, span, button, a {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+button,
+a {
   font-family: 'Montserrat', sans-serif;
 }
 .row {

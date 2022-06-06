@@ -1,0 +1,50 @@
+#customOrder {
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  background: url(../images/heroSection.jpg) no-repeat 84%;
+  background-size: cover;
+  h2 {
+    font-weight: 500;
+    font-size: 3.75rem;
+    line-height: 4.5rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+  .titleFirst {
+    color: $pink;
+  }
+  .titleSecond {
+    color: $lightBlue;
+  }
+  p {
+    margin-top: 2rem;
+    max-width: 40%;
+    @media only screen and (max-width: 992px) {
+      max-width: 100%;
+    }
+  }
+  p,
+  button {
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    text-align: center;
+    color: $secondaryColor;
+  }
+  button {
+    border: none;
+    border-bottom: 2px solid $pink;
+    background-color: transparent;
+    &:hover {
+      border: none;
+      cursor: pointer;
+      border-bottom: 2px solid $lightBlue;
+    }
+  }
+}
