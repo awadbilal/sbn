@@ -1,0 +1,55 @@
+@mixin size($w, $h) {
+  width: $w;
+  height: $h;
+}
+@mixin flexInfo($direction, $justifyC, $alignC, $alignI) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justifyC;
+  align-content: $alignC;
+  align-items: $alignI;
+}
+// @mixin imageStray($pos, $width, $top, $left) {
+//   position: $pos;
+//   width: $width;
+//   top: $top;
+//   left: $left;
+// }
+@mixin responsiveRemove() {
+  @media only screen and (max-width: 992px) {
+    display: none;
+  }
+}
+
+#shop {
+  #filter {
+    @include size(100%, 100%);
+    @include flexInfo(row, flex-start, center, center);
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 2px solid #edebe0;
+    .innerContainer {
+      .col-xxl-2,
+      .col-lg-2,
+      .col-md-2 {
+        @include flexInfo(row, center, center, center);
+        font-weight: 400;
+        font-size: 2rem;
+        color: $primaryColor;
+        button {
+          @include size(90%, 90%);
+          background-color: transparent;
+          border: 0;
+          font-weight: 400;
+          font-size: 1.2rem !important;
+          border: 1px solid rgba(237, 235, 224, 1);
+          border-radius: 10;
+        }
+      }
+      .selected {
+        color: $pink;
+      }
+    }
+  }
+}
