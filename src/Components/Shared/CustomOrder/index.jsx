@@ -1,7 +1,9 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 function Index() {
+  const navigate = useNavigate();
   return (
     <Container fluid id='customOrder'>
       <h2 className='titleFirst'>Order your own</h2>
@@ -12,7 +14,9 @@ function Index() {
         but need help ? Well it must be a holiday for you, because we will
         happily bring your visualization to life!
       </p>
-      <button>Check our customization service now</button>
+      <button onClick={() => navigate('/customizeShoes')}>
+        Check our customization service now
+      </button>
     </Container>
   );
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { IoFilter } from 'react-icons/io5';
 
-function Index({ filter, setFilter, sort, setSort }) {
+function Index({ filter, setFilter, sort, setSort, productsRef }) {
   const SORTING = [
     {
       name: 'Popularity',
@@ -48,7 +48,7 @@ function Index({ filter, setFilter, sort, setSort }) {
     },
   ];
   return (
-    <Container id='filter'>
+    <Container id='filter' ref={productsRef}>
       <Col xs md={1} lg={1} xxl={1}>
         <IoFilter size={'4rem'} />
       </Col>

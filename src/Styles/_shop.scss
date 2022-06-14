@@ -9,12 +9,6 @@
   align-content: $alignC;
   align-items: $alignI;
 }
-// @mixin imageStray($pos, $width, $top, $left) {
-//   position: $pos;
-//   width: $width;
-//   top: $top;
-//   left: $left;
-// }
 @mixin responsiveRemove() {
   @media only screen and (max-width: 992px) {
     display: none;
@@ -43,12 +37,87 @@
           border: 0;
           font-weight: 400;
           font-size: 1.2rem !important;
-          border: 1px solid rgba(237, 235, 224, 1);
+          border: 1px solid $productBorder;
           border-radius: 10;
         }
       }
       .selected {
         color: $pink;
+      }
+    }
+  }
+
+  #products {
+    @include size(100%, 100%);
+    .cardContainer {
+      margin-bottom: 3rem;
+      border: 2px solid $productBorder;
+      border-radius: 10px;
+      cursor: pointer;
+      p {
+        @include flexInfo(row, space-between, center, center);
+        padding-top: 0.5rem;
+        font-weight: 400;
+        font-size: 1.25rem;
+        color: $primaryColor;
+        .price {
+          .originalPrice {
+            color: $secondaryColor;
+            font-size: 1.1rem;
+            position: relative;
+            &:before {
+              position: absolute;
+              content: '';
+              left: 0;
+              top: 45%;
+              right: 0;
+              border-top: 1px solid $secondaryColor;
+              border-color: inherit;
+              -webkit-transform: skewY(-10deg);
+              -moz-transform: skewY(-10deg);
+              transform: skewY(-10deg);
+            }
+          }
+          .afterDiscount {
+            color: $pink;
+          }
+        }
+      }
+      .productImage {
+        width: 100%;
+        max-height: 251px;
+        object-fit: cover;
+      }
+    }
+  }
+
+  #pagintation {
+    @include flexInfo(row, center, center, center);
+    margin-bottom: 3rem;
+    border-top: 2px solid $productBorder;
+    border-bottom: 2px solid $productBorder;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    .outerDiv {
+      @include flexInfo(row, center, center, center);
+      width: 3.125rem;
+      height: 3.125rem;
+      border-radius: 50%;
+      border: 2px solid $secondaryColor;
+      margin-right: 1.5rem;
+      .innerDiv {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+      }
+      .innerDiv:hover {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        background-color: $lightBlue;
+      }
+      .active {
+        background-color: $pink;
       }
     }
   }
