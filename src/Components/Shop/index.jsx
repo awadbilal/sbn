@@ -51,7 +51,7 @@ function Index() {
         newData = newData.sort((a, b) => (a.added > b.added ? -1 : 1));
         break;
       case 'Name':
-        newData = newData.sort((a, b) => (a.name > b.name ? -1 : 1));
+        newData = newData.sort((a, b) => (a.title < b.title ? -1 : 1));
         break;
       case 'Price Down':
         newData = newData.sort((a, b) => (a.price > b.price ? -1 : 1));
@@ -65,23 +65,43 @@ function Index() {
     setPage(1);
   }, [data, filter, sort]);
 
-  function prevPage() {
-    const slice = filteredData.slice(12 * (page - 2), 12 * (page - 1));
-    if (slice.length !== 0) {
-      setDataToRender(slice);
-      setPage(page - 1);
-      productsRef.current.scrollIntoView();
-    }
-  }
+  const prevPage = (index) => {
+    let slice = [];
 
-  function nextPage() {
-    const slice = filteredData.slice(12 * page, 12 * (page + 1));
-    if (slice.length !== 0) {
-      setDataToRender(slice);
-      setPage(page + 1);
-      productsRef.current.scrollIntoView();
+    if (page === index + 2) {
+      slice = filteredData.slice(12 * (page - 2), 12 * (page - 1));
+      if (slice.length !== 0) {
+        setDataToRender(slice);
+        setPage(page - 1);
+      }
+    } else if (page > index + 2) {
+      slice = filteredData.slice(12 * (index + 1), 12 * (index + 2));
+      if (slice.length !== 0) {
+        setDataToRender(slice);
+        setPage(index + 1);
+      }
     }
-  }
+    productsRef.current.scrollIntoView();
+  };
+
+  const nextPage = (index) => {
+    let slice = [];
+
+    if (page === index) {
+      slice = filteredData.slice(12 * page, 12 * (page + 1));
+      if (slice.length !== 0) {
+        setDataToRender(slice);
+        setPage(page + 1);
+      }
+    } else if (page < index) {
+      slice = filteredData.slice(12 * index, 12 * (index + 1));
+      if (slice.length !== 0) {
+        setDataToRender(slice);
+        setPage(index + 1);
+      }
+    }
+    productsRef.current.scrollIntoView();
+  };
 
   return (
     <div id='shop'>

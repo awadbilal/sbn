@@ -11,11 +11,11 @@ function Index({ page, pageCount, nextPage, prevPage }) {
       if (page === i + 1) newArr.push(<div className='active innerDiv'></div>);
       else if (i + 1 > page)
         newArr.push(
-          <div className='innerDiv' onClick={() => nextPage()}></div>
+          <div className='innerDiv' onClick={() => nextPage(i)}></div>
         );
       else if (i + 1 < page)
         newArr.push(
-          <div className='innerDiv' onClick={() => prevPage()}></div>
+          <div className='innerDiv' onClick={() => prevPage(i)}></div>
         );
     }
     setArr(newArr);

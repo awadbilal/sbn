@@ -1,0 +1,40 @@
+#thankYou {
+  .innerContainer {
+    @include size(100%, 100%);
+    @include flexInfo(column, center, center, center);
+    h1 {
+      font-weight: 600;
+      font-size: 4.5rem;
+      line-height: 5.5rem;
+      text-align: center;
+      color: $primaryColor;
+      margin: 3rem 0;
+      span {
+        color: $pink;
+      }
+    }
+    p {
+      font-weight: 500;
+      font-size: 1.5rem;
+      line-height: 1.8rem;
+      color: $secondaryColor;
+    }
+    button {
+      margin-top: 3rem;
+      margin-bottom: 0.5rem;
+      border: none;
+      border-radius: 7px;
+      margin-top: 2rem;
+      width: 18.75rem;
+      height: 5.3125rem;
+      background-color: $pink;
+      color: white;
+      font-weight: 600;
+      font-size: 1.5rem;
+      text-align: center;
+      &:hover {
+        background-color: $lightBlue;
+      }
+    }
+  }
+}

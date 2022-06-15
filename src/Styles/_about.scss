@@ -1,0 +1,59 @@
+#aboutUs {
+  h1 {
+    font-weight: 500;
+    font-size: 2.5rem;
+    line-height: 4.5rem;
+    color: $lightBlue;
+    margin-bottom: 2rem;
+  }
+  p {
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 2.75rem;
+    color: $primaryColor;
+    text-align: center;
+    span {
+      color: $pink;
+    }
+  }
+  .journey {
+    height: 65vh;
+    p {
+      font-weight: 700;
+    }
+    .imagesDiv {
+      @include size(100%, 100%);
+      @include flexInfo(column, center, center, center);
+      position: relative;
+      .mainImage {
+        position: absolute;
+        top: 0;
+        left: 25%;
+        max-width: 100%;
+        max-height: 40rem;
+      }
+      .yellowBall {
+        position: absolute;
+        left: 12%;
+        bottom: -35%;
+        max-width: 7.5rem;
+        max-height: 7.5rem;
+        @media only screen and (max-width: 1399px) {
+          display: none;
+        }
+      }
+    }
+    .mobile {
+      @media only screen and (max-width: 1340px) {
+        display: none;
+      }
+    }
+  }
+  .visionMission {
+    img {
+      max-width: 100%;
+      max-height: 10rem;
+    }
+    margin-bottom: 4rem;
+  }
+}
