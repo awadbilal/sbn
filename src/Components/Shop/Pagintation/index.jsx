@@ -1,8 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 
 function Index({ page, pageCount, nextPage, prevPage }) {
-  console.log('🚀 ~ file: index.jsx ~ line 5 ~ Index ~ pageCount', pageCount);
   const [arr, setArr] = useState([]);
 
   useEffect(() => {

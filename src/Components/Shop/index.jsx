@@ -12,6 +12,7 @@ function Index() {
   const [filter, setFilter] = useState(state || 'All Products');
   const [sort, setSort] = useState('Popularity');
   const [data, setData] = useState(DATA);
+  const [filteredData, setFilteredData] = useState(DATA);
   const [dataToRender, setDataToRender] = useState([]);
   const [page, setPage] = useState(1);
   const [pageCount, setPageCount] = useState(1);
@@ -20,6 +21,7 @@ function Index() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setData(DATA);
+    setFilteredData(DATA);
     setDataToRender(
       DATA.sort((a, b) => (a.orderCount > b.orderCount ? -1 : 1)).slice(0, 12)
     );
@@ -31,10 +33,14 @@ function Index() {
     let newData = data;
     if (filter !== 'All Products') {
       newData = data.filter((item) => item.category === filter);
-      if (newData > 12) setPageCount(Math.ceil(newData.length / 12));
+      if (newData.length > 12) setPageCount(Math.ceil(newData.length / 12));
       else setPageCount(1);
-    } else newData = data;
+    } else {
+      newData = data;
+      if (data.length > 12) setPageCount(Math.ceil(data.length / 12));
+    }
 
+    // eslint-disable-next-line default-case
     switch (sort) {
       case 'Popularity':
         newData = newData.sort((a, b) =>
@@ -54,25 +60,26 @@ function Index() {
         newData = newData.sort((a, b) => (a.price < b.price ? -1 : 1));
         break;
     }
+    setFilteredData(newData);
     setDataToRender(newData.slice(0, 12));
     setPage(1);
-  }, [filter, sort]);
+  }, [data, filter, sort]);
 
   function prevPage() {
-    const slice = data.slice(12 * (page - 2), 12 * (page - 1));
+    const slice = filteredData.slice(12 * (page - 2), 12 * (page - 1));
     if (slice.length !== 0) {
       setDataToRender(slice);
-      productsRef.current.scrollIntoView();
       setPage(page - 1);
+      productsRef.current.scrollIntoView();
     }
   }
 
   function nextPage() {
-    const slice = data.slice(12 * page, 12 * (page + 1));
+    const slice = filteredData.slice(12 * page, 12 * (page + 1));
     if (slice.length !== 0) {
       setDataToRender(slice);
-      productsRef.current.scrollIntoView();
       setPage(page + 1);
+      productsRef.current.scrollIntoView();
     }
   }
 

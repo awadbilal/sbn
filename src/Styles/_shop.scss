@@ -122,3 +122,139 @@
     }
   }
 }
+
+#singleProduct {
+  @include size(100%, 100%);
+  .topHalf {
+    .topHalfCol {
+      padding: 3rem 1rem;
+      @include flexInfo(column, flex-start, center, center);
+      .mainDisplay {
+        max-width: 100%;
+        object-fit: cover;
+      }
+      .galleryImage {
+        @include size(12rem, 12rem);
+        max-width: 12rem;
+        max-height: 12rem;
+        margin-bottom: 1rem;
+        object-fit: cover;
+      }
+      .productInformation {
+        padding-left: 0.75rem;
+        min-width: 100%;
+        p {
+          font-weight: 400;
+          font-size: 1.125rem;
+          color: $secondaryColor;
+          margin-bottom: 1rem;
+        }
+        h1 {
+          font-weight: 400;
+          font-size: 2.25rem;
+          color: $primaryColor;
+          .originalPrice {
+            color: $secondaryColor;
+            font-size: 1.5rem;
+            position: relative;
+            margin-right: 1rem;
+            &:before {
+              position: absolute;
+              content: '';
+              left: 0;
+              top: 45%;
+              right: 0;
+              border-top: 1px solid $secondaryColor;
+              border-color: inherit;
+              -webkit-transform: skewY(-10deg);
+              -moz-transform: skewY(-10deg);
+              transform: skewY(-10deg);
+            }
+          }
+        }
+        .discountRate {
+          color: $pink;
+        }
+        .sizeDropDown {
+          width: 32%;
+          background-color: white;
+          border: 2px solid $pink;
+          border-radius: 10px;
+          #dropdown-autoclose-true {
+            width: 100%;
+            background-color: transparent;
+            border: none;
+            color: $secondaryColor;
+            font-weight: 400;
+            font-size: 1.25rem;
+            text-align: start;
+            &::after {
+              display: none;
+              border: none;
+            }
+            &:focus {
+              outline: none;
+              box-shadow: none;
+              border: none;
+            }
+            .dropDownText {
+              @include flexInfo(row, space-between, center, center);
+            }
+          }
+          .dropDownMenu {
+            min-width: 100%;
+            max-height: 15rem;
+            overflow: auto;
+            border-bottom: 2px solid $pink;
+            border-right: 2px solid $pink;
+            border-left: 2px solid $pink;
+            border-radius: 10px;
+            &::-webkit-scrollbar {
+              width: 6px;
+              height: 30%;
+              background-color: #f5f5f5;
+              scrollbar-color: $lightBlue;
+            }
+
+            &::-webkit-scrollbar-thumb {
+              background: rgba(0, 0, 0, 0.2);
+              border-radius: 10px;
+              -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+              background-color: $lightBlue;
+            }
+          }
+        }
+        .addToCart {
+          border: none;
+          border-radius: 7px;
+          margin-top: 2rem;
+          width: 32%;
+          height: 3.5rem;
+          background-color: $pink;
+          color: white;
+          font-weight: 600;
+          font-size: 1.5rem;
+          text-align: center;
+          &:hover {
+            background-color: $lightBlue;
+          }
+        }
+      }
+    }
+  }
+  .bottomHalf {
+    padding: 0 1rem 3rem 1rem;
+    font-size: 1.5rem;
+    line-height: 2.75rem;
+    h1 {
+      font-weight: 400;
+      font-size: 2.25rem;
+      margin-bottom: 2rem;
+      color: $lightBlue;
+    }
+    p {
+      font-weight: 400;
+      color: $secondaryColor;
+    }
+  }
+}

@@ -12,6 +12,7 @@ import Cart from './Components/Cart';
 import Admin from './Components/Admin';
 import Footer from './Components/Shared/Footer';
 import { DATA } from './Data/products';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './Styles/style.scss';
 
 function App() {

@@ -8,13 +8,18 @@ export const DATA = [
     id: 0,
     added: 0,
     image: shoesCatSquare,
-    gallery: [],
+    gallery: [shoesCatSquare, shoesCatSquare, shoesCatSquare, shoesCatSquare],
     title: 'Sneakers 1',
     price: 250,
     discount: 20,
     category: 'Sneakers',
     orderCount: 0,
     quantity: 5,
+    sizes: [
+      37, 37.5, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43, 43.5,
+    ],
+    description:
+      'Become the master of your own style and stand out in the crowd wearing our “How I Met Your Mother” Barney Stinson one and only famous sentence “Suit Up” themed Nike shoes.[\n]Whether you are wearing casual, sports, or formal, its is always time to suit up and become legen.....   wait for it   .....dary.[\n]It’s time for you to suit up!',
   },
   {
     id: 1,
@@ -27,6 +32,11 @@ export const DATA = [
     category: 'Sneakers',
     orderCount: 0,
     quantity: 5,
+    sizes: [
+      37, 37.5, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43, 43.5,
+    ],
+    description:
+      'Become the master of your own style and stand out in the crowd wearing our “How I Met Your Mother” Barney Stinson one and only famous sentence “Suit Up” themed Nike shoes.[\n]Whether you are wearing casual, sports, or formal, its is always time to suit up and become legen.....   wait for it   .....dary.[\n]It’s time for you to suit up!',
   },
   {
     id: 2,
@@ -39,6 +49,11 @@ export const DATA = [
     category: 'Sneakers',
     orderCount: 5,
     quantity: 5,
+    sizes: [
+      37, 37.5, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43, 43.5,
+    ],
+    description:
+      'Become the master of your own style and stand out in the crowd wearing our “How I Met Your Mother” Barney Stinson one and only famous sentence “Suit Up” themed Nike shoes.[\n]Whether you are wearing casual, sports, or formal, its is always time to suit up and become legen.....   wait for it   .....dary.[\n]It’s time for you to suit up!',
   },
   {
     id: 3,
@@ -51,6 +66,11 @@ export const DATA = [
     category: 'Sneakers',
     orderCount: 0,
     quantity: 5,
+    sizes: [
+      37, 37.5, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43, 43.5,
+    ],
+    description:
+      'Become the master of your own style and stand out in the crowd wearing our “How I Met Your Mother” Barney Stinson one and only famous sentence “Suit Up” themed Nike shoes.[\n]Whether you are wearing casual, sports, or formal, its is always time to suit up and become legen.....   wait for it   .....dary.[\n]It’s time for you to suit up!',
   },
   {
     id: 4,
@@ -63,6 +83,11 @@ export const DATA = [
     category: 'Bags',
     orderCount: 0,
     quantity: 5,
+    sizes: [
+      37, 37.5, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43, 43.5,
+    ],
+    description:
+      'Become the master of your own style and stand out in the crowd wearing our “How I Met Your Mother” Barney Stinson one and only famous sentence “Suit Up” themed Nike shoes.[\n]Whether you are wearing casual, sports, or formal, its is always time to suit up and become legen.....   wait for it   .....dary.[\n]It’s time for you to suit up!',
   },
   {
     id: 5,
@@ -75,6 +100,11 @@ export const DATA = [
     category: 'Bags',
     orderCount: 0,
     quantity: 5,
+    sizes: [
+      37, 37.5, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43, 43.5,
+    ],
+    description:
+      'Become the master of your own style and stand out in the crowd wearing our “How I Met Your Mother” Barney Stinson one and only famous sentence “Suit Up” themed Nike shoes.[\n]Whether you are wearing casual, sports, or formal, its is always time to suit up and become legen.....   wait for it   .....dary.[\n]It’s time for you to suit up!',
   },
   {
     id: 6,
@@ -87,18 +117,28 @@ export const DATA = [
     category: 'Bags',
     orderCount: 0,
     quantity: 5,
+    sizes: [
+      37, 37.5, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43, 43.5,
+    ],
+    description:
+      'Become the master of your own style and stand out in the crowd wearing our “How I Met Your Mother” Barney Stinson one and only famous sentence “Suit Up” themed Nike shoes.[\n]Whether you are wearing casual, sports, or formal, its is always time to suit up and become legen.....   wait for it   .....dary.[\n]It’s time for you to suit up!',
   },
   {
     id: 7,
     added: 7,
     image: bagsCatSquare,
-    gallery: [],
+    gallery: [bagsCatSquare, bagsCatSquare, bagsCatSquare],
     title: 'Sneakers 8',
     price: 300,
     discount: 0,
     category: 'Bags',
     orderCount: 10,
     quantity: 5,
+    sizes: [
+      37, 37.5, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43, 43.5,
+    ],
+    description:
+      'Become the master of your own style and stand out in the crowd wearing our “How I Met Your Mother” Barney Stinson one and only famous sentence “Suit Up” themed Nike shoes.[\n]Whether you are wearing casual, sports, or formal, its is always time to suit up and become legen.....   wait for it   .....dary.[\n]It’s time for you to suit up!',
   },
   {
     id: 8,
@@ -111,6 +151,11 @@ export const DATA = [
     category: 'Hats',
     orderCount: 0,
     quantity: 5,
+    sizes: [
+      37, 37.5, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43, 43.5,
+    ],
+    description:
+      'Become the master of your own style and stand out in the crowd wearing our “How I Met Your Mother” Barney Stinson one and only famous sentence “Suit Up” themed Nike shoes.[\n]Whether you are wearing casual, sports, or formal, its is always time to suit up and become legen.....   wait for it   .....dary.[\n]It’s time for you to suit up!',
   },
   {
     id: 9,
@@ -123,6 +168,11 @@ export const DATA = [
     category: 'Hats',
     orderCount: 0,
     quantity: 5,
+    sizes: [
+      37, 37.5, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43, 43.5,
+    ],
+    description:
+      'Become the master of your own style and stand out in the crowd wearing our “How I Met Your Mother” Barney Stinson one and only famous sentence “Suit Up” themed Nike shoes.[\n]Whether you are wearing casual, sports, or formal, its is always time to suit up and become legen.....   wait for it   .....dary.[\n]It’s time for you to suit up!',
   },
   {
     id: 10,
@@ -135,6 +185,11 @@ export const DATA = [
     category: 'Hats',
     orderCount: 0,
     quantity: 5,
+    sizes: [
+      37, 37.5, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43, 43.5,
+    ],
+    description:
+      'Become the master of your own style and stand out in the crowd wearing our “How I Met Your Mother” Barney Stinson one and only famous sentence “Suit Up” themed Nike shoes.[\n]Whether you are wearing casual, sports, or formal, its is always time to suit up and become legen.....   wait for it   .....dary.[\n]It’s time for you to suit up!',
   },
   {
     id: 11,
@@ -147,6 +202,11 @@ export const DATA = [
     category: 'Hats',
     orderCount: 0,
     quantity: 5,
+    sizes: [
+      37, 37.5, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43, 43.5,
+    ],
+    description:
+      'Become the master of your own style and stand out in the crowd wearing our “How I Met Your Mother” Barney Stinson one and only famous sentence “Suit Up” themed Nike shoes.[\n]Whether you are wearing casual, sports, or formal, its is always time to suit up and become legen.....   wait for it   .....dary.[\n]It’s time for you to suit up!',
   },
   {
     id: 12,
@@ -159,6 +219,11 @@ export const DATA = [
     category: 'Accessories',
     orderCount: 30,
     quantity: 5,
+    sizes: [
+      37, 37.5, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43, 43.5,
+    ],
+    description:
+      'Become the master of your own style and stand out in the crowd wearing our “How I Met Your Mother” Barney Stinson one and only famous sentence “Suit Up” themed Nike shoes.[\n]Whether you are wearing casual, sports, or formal, its is always time to suit up and become legen.....   wait for it   .....dary.[\n]It’s time for you to suit up!',
   },
   {
     id: 13,
@@ -171,6 +236,11 @@ export const DATA = [
     category: 'Accessories',
     orderCount: 2,
     quantity: 0,
+    sizes: [
+      37, 37.5, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43, 43.5,
+    ],
+    description:
+      'Become the master of your own style and stand out in the crowd wearing our “How I Met Your Mother” Barney Stinson one and only famous sentence “Suit Up” themed Nike shoes.[\n]Whether you are wearing casual, sports, or formal, its is always time to suit up and become legen.....   wait for it   .....dary.[\n]It’s time for you to suit up!',
   },
   {
     id: 14,
@@ -183,6 +253,11 @@ export const DATA = [
     category: 'Accessories',
     orderCount: 2,
     quantity: 0,
+    sizes: [
+      37, 37.5, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43, 43.5,
+    ],
+    description:
+      'Become the master of your own style and stand out in the crowd wearing our “How I Met Your Mother” Barney Stinson one and only famous sentence “Suit Up” themed Nike shoes.[\n]Whether you are wearing casual, sports, or formal, its is always time to suit up and become legen.....   wait for it   .....dary.[\n]It’s time for you to suit up!',
   },
   {
     id: 15,
@@ -195,6 +270,11 @@ export const DATA = [
     category: 'Accessories',
     orderCount: 2,
     quantity: 0,
+    sizes: [
+      37, 37.5, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43, 43.5,
+    ],
+    description:
+      'Become the master of your own style and stand out in the crowd wearing our “How I Met Your Mother” Barney Stinson one and only famous sentence “Suit Up” themed Nike shoes.[\n]Whether you are wearing casual, sports, or formal, its is always time to suit up and become legen.....   wait for it   .....dary.[\n]It’s time for you to suit up!',
   },
   {
     id: 16,
@@ -207,6 +287,11 @@ export const DATA = [
     category: 'Accessories',
     orderCount: 2,
     quantity: 0,
+    sizes: [
+      37, 37.5, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43, 43.5,
+    ],
+    description:
+      'Become the master of your own style and stand out in the crowd wearing our “How I Met Your Mother” Barney Stinson one and only famous sentence “Suit Up” themed Nike shoes.[\n]Whether you are wearing casual, sports, or formal, its is always time to suit up and become legen.....   wait for it   .....dary.[\n]It’s time for you to suit up!',
   },
   {
     id: 17,
@@ -219,6 +304,11 @@ export const DATA = [
     category: 'Accessories',
     orderCount: 2,
     quantity: 0,
+    sizes: [
+      37, 37.5, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43, 43.5,
+    ],
+    description:
+      'Become the master of your own style and stand out in the crowd wearing our “How I Met Your Mother” Barney Stinson one and only famous sentence “Suit Up” themed Nike shoes.[\n]Whether you are wearing casual, sports, or formal, its is always time to suit up and become legen.....   wait for it   .....dary.[\n]It’s time for you to suit up!',
   },
   {
     id: 18,
@@ -231,6 +321,11 @@ export const DATA = [
     category: 'Accessories',
     orderCount: 2,
     quantity: 0,
+    sizes: [
+      37, 37.5, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43, 43.5,
+    ],
+    description:
+      'Become the master of your own style and stand out in the crowd wearing our “How I Met Your Mother” Barney Stinson one and only famous sentence “Suit Up” themed Nike shoes.[\n]Whether you are wearing casual, sports, or formal, its is always time to suit up and become legen.....   wait for it   .....dary.[\n]It’s time for you to suit up!',
   },
   {
     id: 19,
@@ -243,6 +338,11 @@ export const DATA = [
     category: 'Accessories',
     orderCount: 2,
     quantity: 0,
+    sizes: [
+      37, 37.5, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43, 43.5,
+    ],
+    description:
+      'Become the master of your own style and stand out in the crowd wearing our “How I Met Your Mother” Barney Stinson one and only famous sentence “Suit Up” themed Nike shoes.[\n]Whether you are wearing casual, sports, or formal, its is always time to suit up and become legen.....   wait for it   .....dary.[\n]It’s time for you to suit up!',
   },
   {
     id: 20,
@@ -255,6 +355,11 @@ export const DATA = [
     category: 'Accessories',
     orderCount: 2,
     quantity: 0,
+    sizes: [
+      37, 37.5, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43, 43.5,
+    ],
+    description:
+      'Become the master of your own style and stand out in the crowd wearing our “How I Met Your Mother” Barney Stinson one and only famous sentence “Suit Up” themed Nike shoes.[\n]Whether you are wearing casual, sports, or formal, its is always time to suit up and become legen.....   wait for it   .....dary.[\n]It’s time for you to suit up!',
   },
   {
     id: 21,
@@ -267,6 +372,11 @@ export const DATA = [
     category: 'Accessories',
     orderCount: 2,
     quantity: 0,
+    sizes: [
+      37, 37.5, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43, 43.5,
+    ],
+    description:
+      'Become the master of your own style and stand out in the crowd wearing our “How I Met Your Mother” Barney Stinson one and only famous sentence “Suit Up” themed Nike shoes.[\n]Whether you are wearing casual, sports, or formal, its is always time to suit up and become legen.....   wait for it   .....dary.[\n]It’s time for you to suit up!',
   },
   {
     id: 22,
@@ -279,6 +389,11 @@ export const DATA = [
     category: 'Accessories',
     orderCount: 2,
     quantity: 0,
+    sizes: [
+      37, 37.5, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43, 43.5,
+    ],
+    description:
+      'Become the master of your own style and stand out in the crowd wearing our “How I Met Your Mother” Barney Stinson one and only famous sentence “Suit Up” themed Nike shoes.[\n]Whether you are wearing casual, sports, or formal, its is always time to suit up and become legen.....   wait for it   .....dary.[\n]It’s time for you to suit up!',
   },
   {
     id: 23,
@@ -291,6 +406,11 @@ export const DATA = [
     category: 'Accessories',
     orderCount: 2,
     quantity: 0,
+    sizes: [
+      37, 37.5, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43, 43.5,
+    ],
+    description:
+      'Become the master of your own style and stand out in the crowd wearing our “How I Met Your Mother” Barney Stinson one and only famous sentence “Suit Up” themed Nike shoes.[\n]Whether you are wearing casual, sports, or formal, its is always time to suit up and become legen.....   wait for it   .....dary.[\n]It’s time for you to suit up!',
   },
   {
     id: 24,
@@ -303,6 +423,11 @@ export const DATA = [
     category: 'Accessories',
     orderCount: 2,
     quantity: 0,
+    sizes: [
+      37, 37.5, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43, 43.5,
+    ],
+    description:
+      'Become the master of your own style and stand out in the crowd wearing our “How I Met Your Mother” Barney Stinson one and only famous sentence “Suit Up” themed Nike shoes.[\n]Whether you are wearing casual, sports, or formal, its is always time to suit up and become legen.....   wait for it   .....dary.[\n]It’s time for you to suit up!',
   },
   {
     id: 25,
@@ -315,6 +440,11 @@ export const DATA = [
     category: 'Accessories',
     orderCount: 2,
     quantity: 0,
+    sizes: [
+      37, 37.5, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43, 43.5,
+    ],
+    description:
+      'Become the master of your own style and stand out in the crowd wearing our “How I Met Your Mother” Barney Stinson one and only famous sentence “Suit Up” themed Nike shoes.[\n]Whether you are wearing casual, sports, or formal, its is always time to suit up and become legen.....   wait for it   .....dary.[\n]It’s time for you to suit up!',
   },
   {
     id: 26,
@@ -327,6 +457,11 @@ export const DATA = [
     category: 'Accessories',
     orderCount: 2,
     quantity: 0,
+    sizes: [
+      37, 37.5, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43, 43.5,
+    ],
+    description:
+      'Become the master of your own style and stand out in the crowd wearing our “How I Met Your Mother” Barney Stinson one and only famous sentence “Suit Up” themed Nike shoes.[\n]Whether you are wearing casual, sports, or formal, its is always time to suit up and become legen.....   wait for it   .....dary.[\n]It’s time for you to suit up!',
   },
   {
     id: 27,
@@ -339,6 +474,11 @@ export const DATA = [
     category: 'Accessories',
     orderCount: 2,
     quantity: 0,
+    sizes: [
+      37, 37.5, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43, 43.5,
+    ],
+    description:
+      'Become the master of your own style and stand out in the crowd wearing our “How I Met Your Mother” Barney Stinson one and only famous sentence “Suit Up” themed Nike shoes.[\n]Whether you are wearing casual, sports, or formal, its is always time to suit up and become legen.....   wait for it   .....dary.[\n]It’s time for you to suit up!',
   },
   {
     id: 28,
@@ -351,5 +491,10 @@ export const DATA = [
     category: 'Accessories',
     orderCount: 2,
     quantity: 0,
+    sizes: [
+      37, 37.5, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43, 43.5,
+    ],
+    description:
+      'Become the master of your own style and stand out in the crowd wearing our “How I Met Your Mother” Barney Stinson one and only famous sentence “Suit Up” themed Nike shoes.[\n]Whether you are wearing casual, sports, or formal, its is always time to suit up and become legen.....   wait for it   .....dary.[\n]It’s time for you to suit up!',
   },
 ];
