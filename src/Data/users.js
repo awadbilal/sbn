@@ -4,7 +4,7 @@ export const USERS = [
     surname: 'surname',
     email: 'bilal@gmail.com',
     password: '123456',
-    orders: [],
-    basket: [],
+    orders: [0, 1],
+    basket: [0, 1, 2],
   },
 ];

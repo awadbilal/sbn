@@ -8,17 +8,23 @@ export const ORDERS = [
       {
         id: 0,
         image: shoesCatSquare,
-        title: 'Sneakers 1',
+        title: 'Sneakers 101',
         price: 250,
         discount: 20,
         category: 'Shoes',
         orderCount: 0,
         quantity: 5,
       },
+    ],
+  },
+  {
+    id: 1,
+    date: 'Wed Jun 15 2022 18:08:35 GMT+0300 (GMT+03:00)',
+    products: [
       {
         id: 1,
         image: shoesCatSquare,
-        title: 'Sneakers 2',
+        title: 'Sneakers 202',
         price: 350,
         discount: 10,
         category: 'Shoes',
