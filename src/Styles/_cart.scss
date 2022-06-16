@@ -1,0 +1,129 @@
+#cart {
+  h1 {
+    font-weight: 600;
+    font-size: 2.5rem;
+    line-height: 4.5rem;
+    color: $lightBlue;
+    margin-bottom: 2rem;
+  }
+
+  .products {
+    h2 {
+      width: 100%;
+      @include flexInfo(row, space-between, center, center);
+      font-weight: 500;
+      font-size: 2.25rem;
+      line-height: 2.75rem;
+    }
+    .itemContainer {
+      @include flexInfo(row, flex-start, center, center);
+      border: 3px solid $productBorder;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      padding: 0.5rem;
+      img {
+        width: 6rem;
+        height: 6rem;
+        object-fit: cover;
+      }
+      h3 {
+        font-weight: 500;
+        font-size: 2rem;
+        line-height: 2.5rem;
+        color: $primaryColor;
+      }
+      p {
+        font-weight: 500;
+        font-size: 1rem;
+        line-height: 1.25rem;
+        color: $secondaryColor;
+      }
+      .priceContainer {
+        p {
+          font-weight: 500;
+          font-size: 2rem;
+          color: $primaryColor;
+        }
+        .previousPrice {
+          color: $secondaryColor;
+          font-size: 1.2rem;
+          width: fit-content;
+          position: relative;
+          &:before {
+            position: absolute;
+            content: '';
+            left: 0;
+            top: 45%;
+            right: 0;
+            border-top: 1px solid $secondaryColor;
+            border-color: inherit;
+            -webkit-transform: skewY(-10deg);
+            -moz-transform: skewY(-10deg);
+            transform: skewY(-10deg);
+          }
+        }
+      }
+      button {
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+        &::after,
+        &:focus {
+          background-color: transparent;
+          border: none;
+          box-shadow: none;
+        }
+        path {
+          color: $primaryColor;
+        }
+      }
+    }
+  }
+  .emailForm {
+    p {
+      font-weight: 600;
+      font-size: 1.5rem;
+      line-height: 2rem;
+      color: $primaryColor;
+      margin-bottom: 3rem;
+    }
+    input,
+    textarea {
+      width: 100%;
+      height: 3rem;
+      padding-left: 1.5rem;
+      border: 2px solid $pink;
+      border-radius: 10px;
+      &:focus {
+        border: 2px solid $lightBlue;
+        border-radius: 10px;
+        outline-offset: 0px;
+        outline: none;
+      }
+    }
+    textarea {
+      height: 5rem;
+      padding-top: 1rem;
+    }
+    span {
+      font-weight: 600;
+      font-size: 1.5rem;
+      color: $pink;
+    }
+  }
+  .submitButton {
+    background-color: transparent;
+    border: 3px solid $pink;
+    color: $pink;
+    border-radius: 50%;
+    width: 5rem;
+    height: 5rem;
+    margin: 2rem 1rem;
+    &:hover {
+      border: 3px solid $lightBlue;
+      color: $lightBlue;
+      box-shadow: none;
+      outline: none;
+    }
+  }
+}
