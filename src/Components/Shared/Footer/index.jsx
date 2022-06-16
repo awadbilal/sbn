@@ -18,17 +18,29 @@ const Index = () => {
       <Col md={4} lg={4}>
         <Row>
           <Col sm={4} md={4} lg={4}>
-            <a href='https://www.instagram.com/splash_bynoor/' target='_blank'>
+            <a
+              href='https://www.instagram.com/splash_bynoor/'
+              target='_blank'
+              rel='noreferrer'
+            >
               <BsInstagram className='icon' />
             </a>
           </Col>
           <Col sm={4} md={4} lg={4}>
-            <a href='https://www.instagram.com/splash_bynoor/' target='_blank'>
+            <a
+              href='https://www.instagram.com/splash_bynoor/'
+              target='_blank'
+              rel='noreferrer'
+            >
               <BsWhatsapp className='icon' />
             </a>
           </Col>
           <Col sm={4} md={4} lg={4}>
-            <a href='https://www.instagram.com/splash_bynoor/' target='_blank'>
+            <a
+              href='https://www.instagram.com/splash_bynoor/'
+              target='_blank'
+              rel='noreferrer'
+            >
               <IoMailOutline className='icon' />
             </a>
           </Col>

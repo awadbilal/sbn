@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Alert, Container } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+import { message } from 'antd';
 import Banner from '../Shared/Banner';
 import Products from './Products';
 import DeliveryAddress from './DeliveryAddress';
@@ -8,15 +9,13 @@ import { USERS } from '../../Data/users';
 import { DATA } from '../../Data/products';
 
 function Index() {
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [isFailure, setIsFailure] = useState(false);
   const [basket, setBasket] = useState(USERS[0].basket);
   const [productsToRender, setProductsToRender] = useState([]);
   const [formData, setFormData] = useState({
     name: USERS[0].name,
     surname: USERS[0].surname,
     email: USERS[0].email,
-    phone: USERS[0].phone,
+    phone: parseInt(USERS[0].phone.split(' ').join('')),
     city: USERS[0].activeAddress ? USERS[0].activeAddress.city : '',
     province: USERS[0].activeAddress ? USERS[0].activeAddress.province : '',
     street: USERS[0].activeAddress ? USERS[0].activeAddress.street : '',
@@ -42,28 +41,20 @@ function Index() {
   };
 
   const handleClick = () => {
-    // Submit it later baby boy!
-    setIsSuccess(true);
-    setIsFailure(true);
-  };
-
-  useEffect(() => {
-    if (isSuccess || isFailure) {
-      const timeId = setTimeout(() => {
-        setIsSuccess(false);
-        setIsFailure(false);
-      }, 5000);
-
-      return () => {
-        clearTimeout(timeId);
-      };
+    if (Object.values(formData).includes('')) {
+      return message.warn('Please fill all fields then try again');
     }
-  }, [isSuccess, isFailure]);
+    // Submit it later baby boy!
+    message.success('Your order has been received.');
+    message.error(
+      'There was an error processing your order, please try again.'
+    );
+  };
 
   return (
     <div id='cart'>
       <Banner title='Shopping Basket' />
-      <Products data={productsToRender} basket={basket} />
+      <Products data={productsToRender} basket={basket} setBasket={setBasket} />
       <DeliveryAddress
         formData={formData}
         setFormData={setFormData}
@@ -76,14 +67,6 @@ function Index() {
           </button>{' '}
           Submit
         </span>
-        {isSuccess && (
-          <Alert variant='success'>Your message has been received</Alert>
-        )}
-        {isFailure && (
-          <Alert variant='warning'>
-            There was a problem sending your message
-          </Alert>
-        )}
       </Container>
     </div>
   );

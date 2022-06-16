@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Alert, Col, Container, Row } from 'react-bootstrap';
+import { message } from 'antd';
+import React, { useState } from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
 import { BsArrowRight } from 'react-icons/bs';
 
 function Index() {
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [isFailure, setIsFailure] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -20,23 +19,14 @@ function Index() {
   };
 
   const handleClick = () => {
-    // Submit it later baby boy!
-    setIsSuccess(true);
-    setIsFailure(true);
-  };
-
-  useEffect(() => {
-    if (isSuccess || isFailure) {
-      const timeId = setTimeout(() => {
-        setIsSuccess(false);
-        setIsFailure(false);
-      }, 5000);
-
-      return () => {
-        clearTimeout(timeId);
-      };
+    if (Object.values(formData).includes('')) {
+      return message.warn('Please fill all fields then try again');
     }
-  }, [isSuccess, isFailure]);
+    // Type here what you want
+    // Send the message to backend
+    message.success('Your message has been received');
+    message.alert('There was a problem sending your message');
+  };
 
   const formInputs = [
     {
@@ -106,16 +96,6 @@ function Index() {
         </button>{' '}
         Submit
       </span>
-      {isSuccess && (
-        <Alert variant='success' style={{ width: '60%' }}>
-          Your message has been received
-        </Alert>
-      )}
-      {isFailure && (
-        <Alert variant='warning' style={{ width: '60%' }}>
-          There was a problem sending your message
-        </Alert>
-      )}
     </Container>
   );
 }

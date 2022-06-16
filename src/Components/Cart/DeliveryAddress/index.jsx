@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 
-function Index({ formData, setFormData, handleChange }) {
+function Index({ formData, handleChange }) {
   const formInputs = [
     {
       title: 'Email',

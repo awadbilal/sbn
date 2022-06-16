@@ -13,6 +13,7 @@ import ThankYou from './Components/ThankYou';
 import Admin from './Components/Admin';
 import Footer from './Components/Shared/Footer';
 import { DATA } from './Data/products';
+import 'antd/dist/antd.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Styles/style.scss';
 

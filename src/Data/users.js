@@ -4,7 +4,7 @@ export const USERS = [
     surname: 'surname',
     email: 'bilal@gmail.com',
     password: '123456',
-    phone: '+90 545 545 54 54',
+    phone: '0545 545 54 54',
     activeAddress: {
       city: 'İstanbul',
       province: 'Beşiktaş',
