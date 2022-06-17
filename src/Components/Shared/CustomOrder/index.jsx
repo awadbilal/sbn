@@ -14,7 +14,7 @@ function Index() {
         but need help ? Well it must be a holiday for you, because we will
         happily bring your visualization to life!
       </p>
-      <button onClick={() => navigate('/customizeShoes')}>
+      <button onClick={() => navigate('/customize')}>
         Check our customization service now
       </button>
     </Container>

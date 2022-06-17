@@ -1,6 +1,8 @@
+import { Image } from 'antd';
 import React from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import FallBackImage from '../../../images/fallBackImage.png';
 
 function Index({ data }) {
   const navigate = useNavigate();
@@ -17,11 +19,13 @@ function Index({ data }) {
                   md={4}
                   lg={3}
                   xxl={3}
-                  key={`product${item.id}`}
+                  key={`shop${item.id}`}
                 >
                   <Card
                     className='cardContainer'
-                    onClick={() => navigate(`/product${item.id}`)}
+                    onClick={() =>
+                      navigate(`/shop/${item.id}`, { state: item })
+                    }
                   >
                     <Card.Body>
                       <Card.Title>
@@ -45,7 +49,17 @@ function Index({ data }) {
                         </p>
                       </Card.Title>
                     </Card.Body>
-                    <Card.Img src={item.image} className='productImage' />
+                    <Image
+                      preview={false}
+                      src={item.image}
+                      style={{
+                        width: '100%',
+                        maxHeight: '251px',
+                        objectFit: 'cover',
+                      }}
+                      alt='Main Image'
+                      fallback={FallBackImage}
+                    />
                   </Card>
                 </Col>
               );

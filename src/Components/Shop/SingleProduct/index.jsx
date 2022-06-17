@@ -1,11 +1,15 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import { useLocation } from 'react-router-dom';
 import Gallery from './Gallery';
 import Information from './Information';
 
-function Index({ product }) {
+function Index() {
+  const location = useLocation();
+  const { state } = location;
+
   const { id, title, price, sizes, discount, image, gallery, description } =
-    product;
+    state;
 
   return (
     <Container id='singleProduct'>

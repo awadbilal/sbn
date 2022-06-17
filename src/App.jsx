@@ -10,9 +10,9 @@ import AboutUs from './Components/About';
 import ContactUs from './Components/ContactUs';
 import Cart from './Components/Cart';
 import ThankYou from './Components/ThankYou';
+import Custom from './Components/Custom';
 import Admin from './Components/Admin';
 import Footer from './Components/Shared/Footer';
-import { DATA } from './Data/products';
 import 'antd/dist/antd.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Styles/style.scss';
@@ -25,22 +25,14 @@ function App() {
         <Route path='*' element={<ErrorNotFound />} />
         <Route exact path='/' element={<Home />} />
         <Route exact path='/user' element={<User />} />
+        <Route exact path='/customize' element={<Custom />} />
         <Route exact path='/shop' element={<Shop />} />
         <Route exact path='/about-us' element={<AboutUs />} />
         <Route exact path='/contact-us' element={<ContactUs />} />
         <Route exact path='/cart' element={<Cart />} />
         <Route exact path='/thank-you' element={<ThankYou />} />
         <Route exact path='/admin' element={<Admin />} />
-        {DATA.map((item) => {
-          return (
-            <Route
-              exact
-              path={`product${item.id}`}
-              key={`product${item.id}`}
-              element={<SingleProduct product={item} />}
-            />
-          );
-        })}
+        <Route exact path='/shop/:id' element={<SingleProduct />} />
       </Routes>
       <Footer />
     </>

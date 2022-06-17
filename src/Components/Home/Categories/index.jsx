@@ -33,7 +33,7 @@ function Index() {
       </div>
       <div
         className='shoes'
-        onClick={() => navigate('/shop', { state: 'Shoes' })}
+        onClick={() => navigate('/shop', { state: 'Sneakers' })}
       >
         <img
           src={ShoesCat}
