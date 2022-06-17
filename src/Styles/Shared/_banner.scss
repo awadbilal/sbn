@@ -1,0 +1,13 @@
+#banner {
+  @include size(100%, 25vh);
+  @include flexInfo(column, center, center, center);
+  background: url(../../images/heroSection.jpg) no-repeat 84%;
+  background-size: cover;
+  h1 {
+    font-weight: 600;
+    font-size: 4.5rem;
+    line-height: 5.5rem;
+    text-align: center;
+    color: $pink;
+  }
+}

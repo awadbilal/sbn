@@ -2,6 +2,7 @@ export const USERS = [
   {
     name: 'name',
     surname: 'surname',
+    role: 'customer',
     email: 'bilal@gmail.com',
     password: '123456',
     phone: '0545 545 54 54',
@@ -27,5 +28,11 @@ export const USERS = [
         size: 40.5,
       },
     ],
+  },
+  {
+    name: 'Admin',
+    role: 'admin',
+    email: 'admin@gmail.com',
+    password: '123456',
   },
 ];

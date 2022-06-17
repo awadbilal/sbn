@@ -1,16 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import '~bootstrap/scss/bootstrap';
 @import './variables';
-@import './navbar';
-@import './home';
-@import './shop';
-@import './about';
-@import './contactUs';
-@import './thankYou';
-@import './cart';
-@import './banner';
-@import './customOrder';
-@import './footer';
+
+@import './Authentication/authentication';
+
+@import './Shared/navbar';
+@import './Shared/thankYou';
+@import './Shared/banner';
+@import './Shared/customOrder';
+@import './Shared/footer';
+
+@import './Customer/home';
+@import './Customer/shop';
+@import './Customer/about';
+@import './Customer/contactUs';
+@import './Customer/cart';
+@import './Customer/custom';
 
 .placeHolder {
   color: $placeholder;

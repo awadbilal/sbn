@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import Logo from '../../../images/Logo.jpg';
-import { RiShoppingBagFill } from 'react-icons/ri';
+import { RiShoppingBagFill, RiAccountCircleLine } from 'react-icons/ri';
 
 const Index = () => {
-  const pages = ['Shop', 'About us', 'Contact us'];
   const location = useLocation();
   const [url, setUrl] = useState(null);
+
+  const pages = ['Shop', 'About us', 'Contact us'];
+  const user = JSON.parse(localStorage.getItem('user'));
+
   useEffect(() => {
     setUrl(location.pathname);
   }, [location]);
@@ -71,12 +74,30 @@ const Index = () => {
             </Nav>
             <Nav className='responsiveNone'>
               <Nav.Link eventKey={pages.length + 2}>
-                <Link
-                  to='/cart'
-                  className={'highlight' + (url === '/cart' ? ' active' : '')}
-                >
-                  <RiShoppingBagFill className='icon' size='4rem' />
-                </Link>
+                {user ? (
+                  <>
+                    <Link
+                      to='/account'
+                      className={
+                        'highlight' + (url === '/cart' ? ' active' : '')
+                      }
+                    >
+                      <RiAccountCircleLine className='icon' size='4rem' />
+                    </Link>
+                    <Link
+                      to='/cart'
+                      className={
+                        'highlight' + (url === '/cart' ? ' active' : '')
+                      }
+                    >
+                      <RiShoppingBagFill className='icon' size='4rem' />
+                    </Link>
+                  </>
+                ) : (
+                  <Link to='/user' className='highlight'>
+                    <button className='loginButton'>Login / Signup</button>
+                  </Link>
+                )}
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>

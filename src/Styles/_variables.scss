@@ -1,3 +1,26 @@
+@mixin size($w, $h) {
+  width: $w;
+  height: $h;
+}
+@mixin flexInfo($direction, $justifyC, $alignC, $alignI) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justifyC;
+  align-content: $alignC;
+  align-items: $alignI;
+}
+@mixin imageStray($pos, $width, $top, $left) {
+  position: $pos;
+  width: $width;
+  top: $top;
+  left: $left;
+}
+@mixin responsiveRemove() {
+  @media only screen and (max-width: 992px) {
+    display: none;
+  }
+}
+
 $primary-color: crimson;
 $primaryColor: #0b0b0b;
 $secondaryColor: #2d2d2d;

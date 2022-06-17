@@ -1,0 +1,85 @@
+#authentication {
+  @include size(100%, 86vh);
+  @include flexInfo(column, center, center, center);
+  background: url(../../images/heroSection.jpg) no-repeat 84%;
+  background-size: cover;
+  .tabsPane {
+    width: 40vw;
+    height: fit-content;
+    border: none;
+    @include flexInfo(row, space-around, center, center);
+    .nav-item {
+      width: 50%;
+      background-color: rgba(207, 242, 244, 1);
+      @include flexInfo(row, center, center, center);
+      border-top-right-radius: 10px;
+      border-top-left-radius: 10px;
+    }
+    button {
+      width: 100%;
+      font-weight: 400;
+      font-size: 1.5rem;
+      line-height: 1.8rem;
+      color: $primaryColor;
+      border-top-right-radius: 10px;
+      border-top-left-radius: 10px;
+      &:hover,
+      &::after,
+      &::before {
+        border: none;
+      }
+    }
+    button.active {
+      background-color: rgba(254, 183, 165, 1);
+      color: $primaryColor;
+    }
+  }
+  .tab-content {
+    padding: 3rem 2rem;
+    margin: 0;
+    width: 40vw;
+    background-color: rgba(254, 183, 165, 1);
+    height: 70vh;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    .login {
+      @include size(100%, 100%);
+      @include flexInfo(column, flex-start, center, stretch);
+      p {
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        color: $primaryColor;
+      }
+      input {
+        width: 100%;
+        height: 3rem;
+        padding-left: 1.5rem;
+        border: 2px solid $pink;
+        border-radius: 10px;
+        &:focus {
+          border: 2px solid $lightBlue;
+          border-radius: 10px;
+          outline-offset: 0px;
+          outline: none;
+        }
+      }
+      button {
+        background-color: $pink;
+        border: none;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 1.5rem;
+        color: $primaryColor;
+        width: 100%;
+        height: 3rem;
+        margin-top: 2rem;
+        &:hover {
+          background-color: $lightBlue;
+          box-shadow: none;
+          outline: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,71 @@
+#navbar {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.8125rem;
+  padding: 0;
+  margin-top: 0;
+  align-content: center;
+  .logo {
+    width: 7rem;
+    max-width: 100%;
+    align-self: center;
+  }
+  a {
+    text-decoration: none !important;
+    color: $primaryColor;
+    margin-right: 1rem;
+  }
+  .active {
+    color: $pink;
+  }
+  .loginButton {
+    background-color: transparent;
+    border: 2px solid $pink;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: $primaryColor;
+    &:hover {
+      border: 2px solid $lightBlue;
+    }
+  }
+  .highlight {
+    display: inline;
+    position: relative;
+    overflow: hidden;
+    &:hover {
+      color: $lightBlue;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      right: 0;
+      width: 0;
+      bottom: -5px;
+      height: 3px;
+      border-radius: 10px;
+      transition-property: width;
+      transition-duration: 0.3s;
+      transition-timing-function: ease-out;
+      &:hover {
+        left: 0;
+        right: auto;
+        width: 100%;
+      }
+    }
+  }
+  .responsiveNone {
+    @media only screen and (max-width: 992px) {
+      display: none;
+    }
+  }
+  .responsiveShow {
+    display: none;
+    @media only screen and (max-width: 992px) {
+      display: block;
+    }
+  }
+}
