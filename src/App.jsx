@@ -35,16 +35,16 @@ function App() {
             <Route exact path='/shop/:id' element={<SingleProduct />} />
             {/* Remove the following after done */}
             <Route exact path='/customize' element={<Custom />} />
+            {user?.role === 'customer' && (
+              <>
+                <Route exact path='/cart' element={<Cart />} />
+                <Route exact path='/customize' element={<Custom />} />
+                <Route exact path='/thank-you' element={<ThankYou />} />
+              </>
+            )}
           </Routes>
           <Footer />
         </>
-      )}
-      {user?.role === 'customer' && (
-        <Routes>
-          <Route exact path='/cart' element={<Cart />} />
-          <Route exact path='/customize' element={<Custom />} />
-          <Route exact path='/thank-you' element={<ThankYou />} />
-        </Routes>
       )}
       {user?.role === 'admin' && (
         <Routes>

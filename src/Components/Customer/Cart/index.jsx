@@ -23,7 +23,6 @@ function Index() {
     apartment: USERS[0].activeAddress ? USERS[0].activeAddress.apartment : '',
     full: USERS[0].activeAddress ? USERS[0].activeAddress.full : '',
   });
-  console.log(USERS[0]);
 
   useEffect(() => {
     if (basket.length !== 0) {
