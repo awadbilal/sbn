@@ -33,8 +33,6 @@ function App() {
             <Route exact path='/about-us' element={<AboutUs />} />
             <Route exact path='/contact-us' element={<ContactUs />} />
             <Route exact path='/shop/:id' element={<SingleProduct />} />
-            {/* Remove the following after done */}
-            <Route exact path='/customize' element={<Custom />} />
             {user?.role === 'customer' && (
               <>
                 <Route exact path='/cart' element={<Cart />} />

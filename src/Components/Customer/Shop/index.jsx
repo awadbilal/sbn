@@ -51,7 +51,9 @@ function Index() {
         newData = newData.sort((a, b) => (a.added > b.added ? -1 : 1));
         break;
       case 'Name':
-        newData = newData.sort((a, b) => (a.title < b.title ? -1 : 1));
+        newData = newData.sort((a, b) =>
+          a.title?.split(' ')[0] < b.title?.split(' ')[0] ? -1 : 1
+        );
         break;
       case 'Price Down':
         newData = newData.sort((a, b) => (a.price > b.price ? -1 : 1));

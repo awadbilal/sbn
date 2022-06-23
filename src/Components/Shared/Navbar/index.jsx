@@ -79,7 +79,7 @@ const Index = () => {
                     <Link
                       to='/account'
                       className={
-                        'highlight' + (url === '/cart' ? ' active' : '')
+                        'highlight' + (url === '/account' ? ' active' : '')
                       }
                     >
                       <RiAccountCircleLine className='icon' size='4rem' />
