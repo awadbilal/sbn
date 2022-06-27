@@ -1,17 +1,16 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import {
-  TeamOutlined,
-  DesktopOutlined,
-  PieChartOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
+import { TeamOutlined } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
 import EditLayout from './EditLayout';
 import Products from './Products';
 import AddProduct from './AddProduct';
 import Order from './Orders';
 import Users from './Users';
+import { HiClipboardList } from 'react-icons/hi';
+import { RiLayoutMasonryFill } from 'react-icons/ri';
+import { FiPackage } from 'react-icons/fi';
+import { BsPlusLg } from 'react-icons/bs';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -25,10 +24,10 @@ function getItem(label, key, icon, children) {
 }
 
 const items = [
-  getItem('Layout', '1', <PieChartOutlined />),
-  getItem('Products', '2', <DesktopOutlined />),
-  getItem('Add Product', '3', <UserOutlined />),
-  getItem('Orders', '4', <UserOutlined />),
+  getItem('Layout', '1', <RiLayoutMasonryFill />),
+  getItem('Products', '2', <HiClipboardList />),
+  getItem('Add Product', '3', <BsPlusLg />),
+  getItem('Orders', '4', <FiPackage />),
   getItem('Users', '5', <TeamOutlined />),
 ];
 
@@ -81,18 +80,7 @@ function Index() {
           />
         </Sider>
         <Layout className='site-layout'>
-          <Content>
-            {componentToRender}
-            {/* <div
-              className='site-layout-background'
-              style={{
-                padding: 24,
-                minHeight: 360,
-              }}
-            >
-              Bill is a cat.
-            </div> */}
-          </Content>
+          <Content>{componentToRender}</Content>
         </Layout>
       </Layout>
     </div>
