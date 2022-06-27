@@ -1,11 +1,13 @@
 export const USERS = [
   {
-    name: 'name',
-    surname: 'surname',
+    id: 0,
+    name: 'Bilal',
+    surname: 'Avvad',
     role: 'customer',
-    email: 'bilal@gmail.com',
+    email: 'awadbilal99@gmail.com',
     password: '123456',
-    phone: '0545 545 54 54',
+    phone: '0531 581 50 31',
+    status: 'active',
     activeAddress: {
       city: 'İstanbul',
       province: 'Beşiktaş',
@@ -30,9 +32,12 @@ export const USERS = [
     ],
   },
   {
+    id: 1,
     name: 'Admin',
+    surname: 'Admin',
     role: 'admin',
     email: 'admin@gmail.com',
     password: '123456',
+    status: 'active',
   },
 ];

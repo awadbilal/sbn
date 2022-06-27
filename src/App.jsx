@@ -2,7 +2,10 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import ErrorNotFound from './Components/Shared/ErrorNotFound';
 import NavBar from './Components/Shared/Navbar';
+import Footer from './Components/Shared/Footer';
+
 import User from './Components/Authentication';
+
 import Home from './Components/Customer/Home';
 import Shop from './Components/Customer/Shop';
 import SingleProduct from './Components/Customer/Shop/SingleProduct';
@@ -11,7 +14,7 @@ import ContactUs from './Components/Customer/ContactUs';
 import Cart from './Components/Customer/Cart';
 import ThankYou from './Components/Customer/ThankYou';
 import Custom from './Components/Customer/Custom';
-import Footer from './Components/Shared/Footer';
+
 import Admin from './Components/Admin';
 
 import 'antd/dist/antd.css';

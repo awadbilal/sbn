@@ -1,11 +1,73 @@
 #admin {
-  #components-layout-demo-side .logo {
-    height: 32px;
-    margin: 16px;
-    background: rgba(255, 255, 255, 0.3);
-  }
-
   .site-layout .site-layout-background {
     background: #fff;
+  }
+
+  .navigationPanel {
+    background-color: #ffffff;
+    padding: 2rem 0;
+
+    .navigationPanelMenu {
+      background-color: #ffffff;
+      li {
+        color: $primaryColor;
+        &:hover,
+        &:active {
+          color: $lightBlue;
+        }
+        font-size: 1.25rem;
+      }
+
+      .ant-menu-item-selected {
+        color: $pink;
+        opacity: 100%;
+        background-color: #ffffff;
+        svg,
+        span {
+          color: $pink;
+          opacity: 100%;
+          background-color: #ffffff;
+        }
+      }
+    }
+
+    .ant-menu-inline-collapsed {
+      li {
+        .ant-menu-title-content {
+          display: none;
+        }
+      }
+    }
+
+    .ant-layout-sider-trigger {
+      margin-bottom: 2rem;
+      color: $pink;
+      font-size: 2rem;
+      background-color: #ffffff;
+      &:hover {
+        color: $lightBlue;
+      }
+    }
+  }
+
+  #adminLogout {
+    @include size(100%, 100%);
+    @include flexInfo(column, center, center, center);
+    button {
+      padding: 0 1.5rem;
+      font-size: 1.5rem;
+      margin-top: 3rem;
+      width: 100%;
+      height: 4rem;
+      background-color: $pink;
+      color: #ffffff;
+      border: none;
+      border-radius: 10px;
+      &:hover {
+        background-color: $lightBlue;
+        box-shadow: none;
+        outline: none;
+      }
+    }
   }
 }
