@@ -1,6 +1,8 @@
 import { message } from 'antd';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { collection, query, where, getDocs } from 'firebase/firestore';
+import { db } from '../../../firebaseconfig';
 
 function Index({ logInData, setLogInData }) {
   const navigate = useNavigate();
@@ -12,17 +14,30 @@ function Index({ logInData, setLogInData }) {
     });
   };
 
-  const handleClick = () => {
+  // Validating user then logging in
+  const handleClick = async () => {
     if (Object.values(logInData).includes('')) {
       return message.warn('Please fill all fields then try again');
     }
-    // Type here what you want
-    // Send the message to backend
-    // on Success:
-    // localStorage.setItem('user', JSON.stringify(logInData));
-    // navigate("/");
-    message.success(`Welcome Back [USERNAME]`);
-    message.warn('Credentials are incorrect');
+
+    const q = query(
+      collection(db, 'users'),
+      where('email', '==', logInData.email.toLowerCase()),
+      where('password', '==', logInData.password)
+    );
+    const querySnapshot = await getDocs(q);
+    if (querySnapshot.docs.length !== 0) {
+      const userInfo = await querySnapshot.docs[0].data();
+      message.success(`Welcome Back ${userInfo.name} ${userInfo.surname}`);
+      localStorage.setItem(
+        'user',
+        JSON.stringify({ ...userInfo, docRef: querySnapshot.docs[0].id })
+      );
+      navigate('/');
+      window.location.reload();
+    } else {
+      message.warn('Incorrect Credentials');
+    }
   };
 
   return (

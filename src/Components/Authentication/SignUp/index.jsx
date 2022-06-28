@@ -2,6 +2,15 @@ import { message } from 'antd';
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  addDoc,
+  orderBy,
+} from 'firebase/firestore';
+import { db } from '../../../firebaseconfig';
 
 function Index({ signUpData, setSignUpData }) {
   const navigate = useNavigate();
@@ -13,7 +22,8 @@ function Index({ signUpData, setSignUpData }) {
     });
   };
 
-  const handleClick = () => {
+  // First step is validating that its a new user, then adding them again.
+  const handleClick = async () => {
     const { name, surname, phone, email, password, passwordRepeat } =
       signUpData;
     if (
@@ -27,13 +37,30 @@ function Index({ signUpData, setSignUpData }) {
       return message.warn('Please fill all the fields first');
     if (password !== passwordRepeat)
       return message.warn('password does not match repeated password.');
-    // Type here what you want
-    // Send the message to backend
-    // on Success:
-    // localStorage.setItem('user', JSON.stringify(signUpData));
-    // navigate("/");
-    message.success(`Welcome on board ${name} ${surname}`);
-    message.warn('User is already registered');
+
+    const q = query(
+      collection(db, 'users'),
+      where('email', '==', email.toLowerCase())
+    );
+    const querySnapshot = await getDocs(q);
+    if (querySnapshot.docs.length !== 0) {
+      message.warn('User is already registered');
+    } else {
+      const usersQuery = await getDocs(
+        query(collection(db, 'users'), orderBy('id', 'desc'))
+      );
+      const maxId = usersQuery.docs[0].data().id;
+      const docRef = await addDoc(collection(db, 'users'), {
+        ...signUpData,
+        id: maxId + 1,
+      });
+      message.success(`Welcome on board ${name} ${surname}`);
+      localStorage.setItem(
+        'user',
+        JSON.stringify({ ...signUpData, docRef: docRef.id, id: maxId + 1 })
+      );
+      navigate('/');
+    }
   };
 
   return (

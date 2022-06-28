@@ -1,10 +1,24 @@
 import React from 'react';
-import { USERS } from '../../../Data/users';
 import { useState } from 'react';
 import { Table } from 'antd';
+import { useEffect } from 'react';
+import { collection, query, onSnapshot } from 'firebase/firestore';
+import { db } from '../../../firebaseconfig';
 
 function Index() {
-  const [dataToRender, setDataToRender] = useState(USERS);
+  const [dataToRender, setDataToRender] = useState();
+
+  // The following listens for the data live and print it.
+  useEffect(() => {
+    const q = query(collection(db, 'users'));
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const users = [];
+      querySnapshot.forEach((doc) => {
+        users.push(doc.data());
+      });
+      setDataToRender(users);
+    });
+  }, []);
 
   const columns = [
     {
