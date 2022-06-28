@@ -1,20 +1,23 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import { DATA } from '../../../Data/products';
 import { useState } from 'react';
-import { Table } from 'antd';
+import { Modal, Table } from 'antd';
 import SingleProduct from './SingleProduct';
 
 function Index() {
   const [dataToRender, setDataToRender] = useState(DATA);
-  const [activeExpRow, setActiveExpRow] = React.useState();
+  const [activeExpRow, setActiveExpRow] = useState();
+  const [itemToDelete, setItemToDelete] = useState();
+  const [openModal, setOpenModal] = useState(false);
 
   const modifiedData = dataToRender.map((item) => ({
     ...item,
     key: item.id,
   }));
 
-  const handleDelete = (item) => {
-    console.log('🚀 ~ e', item);
+  const handleDelete = () => {
+    console.log('🚀 ~ e', itemToDelete);
   };
 
   const columns = [
@@ -133,7 +136,10 @@ function Index() {
             fontSize: '1.5rem',
             textAlign: 'center',
           }}
-          onClick={() => handleDelete(item)}
+          onClick={() => {
+            setOpenModal(true);
+            setItemToDelete(item);
+          }}
         >
           X
         </span>
@@ -144,6 +150,24 @@ function Index() {
 
   return (
     <div id='productsList'>
+      <Modal
+        title='Delete Confirmation'
+        centered
+        visible={openModal}
+        closable={false}
+        okText='Delete'
+        cancelText='Cancel'
+        onOk={() => {
+          handleDelete();
+          setOpenModal(false);
+        }}
+        onCancel={() => {
+          setItemToDelete(null);
+          setOpenModal(false);
+        }}
+      >
+        Are you sure you want to delete "{itemToDelete?.title}" ?
+      </Modal>
       <Table
         loading={dataToRender ? false : true}
         columns={columns}

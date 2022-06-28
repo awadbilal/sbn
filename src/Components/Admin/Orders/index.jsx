@@ -77,7 +77,7 @@ function Index() {
   ];
 
   return (
-    <div id='productsList'>
+    <div id='ordersList'>
       <Table
         loading={dataToRender ? false : true}
         columns={columns}
@@ -92,7 +92,7 @@ function Index() {
         }}
         style={{ padding: '1.5rem 1.5rem 1.5rem 1.5rem' }}
         expandable={{
-          expandedRowRender: (item) => <SingleOrder item={item} />,
+          expandedRowRender: (item) => <SingleOrder item={item.products} />,
           rowExpandable: (item) => true,
           expandedRowKeys: activeExpRow,
           onExpand: (expanded, item) => {
