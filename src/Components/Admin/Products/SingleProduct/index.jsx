@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
-import { Button, Form, Input, InputNumber, Select, Upload } from 'antd';
+import {
+  Button,
+  Form,
+  Input,
+  InputNumber,
+  message,
+  Select,
+  Upload,
+} from 'antd';
 import { InboxOutlined, UploadOutlined } from '@ant-design/icons';
+import { writeBatch, doc } from 'firebase/firestore';
+import { db } from '../../../../firebaseconfig';
 const { TextArea } = Input;
 
 function Index({ item }) {
@@ -17,9 +27,14 @@ function Index({ item }) {
     return e?.fileList;
   };
 
-  const onFinish = (values) => {
-    console.log(values);
+  const onFinish = async (values) => {
+    const batch = await writeBatch(db);
+    let valuesToSend = await { ...item, ...values };
+    const sfRef = await doc(db, 'products', item.docRef);
+    batch.update(sfRef, valuesToSend);
+    message.success('Product has been updated successfully.');
     setComponentDisabled(true);
+    await batch.commit();
   };
 
   const onFinishFailed = (errorInfo) => {

@@ -1,23 +1,48 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React from 'react';
-import { DATA } from '../../../Data/products';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { Modal, Table } from 'antd';
+import { message, Modal, Table } from 'antd';
 import SingleProduct from './SingleProduct';
+import {
+  collection,
+  query,
+  onSnapshot,
+  doc,
+  deleteDoc,
+  orderBy,
+} from 'firebase/firestore';
+import { db } from '../../../firebaseconfig';
 
 function Index() {
-  const [dataToRender, setDataToRender] = useState(DATA);
+  const [dataToRender, setDataToRender] = useState();
   const [activeExpRow, setActiveExpRow] = useState();
   const [itemToDelete, setItemToDelete] = useState();
   const [openModal, setOpenModal] = useState(false);
 
-  const modifiedData = dataToRender.map((item) => ({
+  // The following listens for the data live and print it.
+  useEffect(() => {
+    const q = query(collection(db, 'products'), orderBy('id'));
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const projects = [];
+      querySnapshot.forEach((doc) => {
+        projects.push({ ...doc.data(), docRef: doc.id });
+      });
+      setDataToRender(projects);
+    });
+  }, []);
+
+  const modifiedData = dataToRender?.map((item) => ({
     ...item,
     key: item.id,
   }));
 
-  const handleDelete = () => {
-    console.log('🚀 ~ e', itemToDelete);
+  const handleDelete = async () => {
+    await deleteDoc(doc(db, 'products', itemToDelete.docRef))
+      .then((resp) => {
+        message.success(`Product with id ${itemToDelete.id} has been deleted`);
+        setItemToDelete(null);
+      })
+      .catch((err) => message.error(err.message));
   };
 
   const columns = [

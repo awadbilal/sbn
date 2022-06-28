@@ -17,6 +17,7 @@ function Index() {
     passwordRepeat: '',
     phone: '',
     role: 'customer',
+    status: 'active',
     activeAddress: {
       city: '',
       province: '',

@@ -1,14 +1,26 @@
-import React from 'react';
-import { ORDERS } from '../../../Data/orders';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { Table } from 'antd';
 import SingleOrder from './SingleOrder';
+import { collection, query, onSnapshot, orderBy } from 'firebase/firestore';
+import { db } from '../../../firebaseconfig';
 
 function Index() {
-  const [dataToRender, setDataToRender] = useState(ORDERS);
+  const [dataToRender, setDataToRender] = useState();
   const [activeExpRow, setActiveExpRow] = React.useState();
 
-  const modifiedData = dataToRender.map((item) => ({
+  useEffect(() => {
+    const q = query(collection(db, 'orders'), orderBy('id'));
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const orders = [];
+      querySnapshot.forEach((doc) => {
+        orders.push(doc.data());
+      });
+      setDataToRender(orders);
+    });
+  }, []);
+
+  const modifiedData = dataToRender?.map((item) => ({
     ...item,
     key: item.id,
   }));
