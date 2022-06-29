@@ -8,28 +8,31 @@ import {
   message,
   Select,
   Upload,
+  Modal,
 } from 'antd';
-import { InboxOutlined, UploadOutlined } from '@ant-design/icons';
+import { PlusOutlined } from '@ant-design/icons';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { writeBatch, doc } from 'firebase/firestore';
-import { db } from '../../../../firebaseconfig';
+import { db, storage } from '../../../../firebaseconfig';
+import { v4 } from 'uuid';
 const { TextArea } = Input;
 
 function Index({ item }) {
   const [componentDisabled, setComponentDisabled] = useState(true);
+  const [previewVisible, setPreviewVisible] = useState(false);
+  const [previewImage, setPreviewImage] = useState('');
+  const [previewTitle, setPreviewTitle] = useState('');
+  const [fileList, setFileList] = useState(item.gallery);
+  const [files, setFiles] = useState([]);
 
   const normFile = (e) => {
-    console.log('Upload event:', e);
-
-    if (Array.isArray(e)) {
-      return e;
-    }
-
+    if (Array.isArray(e)) return e;
     return e?.fileList;
   };
 
   const onFinish = async (values) => {
     const batch = await writeBatch(db);
-    let valuesToSend = await { ...item, ...values };
+    let valuesToSend = await { ...item, ...values, gallery: files };
     const sfRef = await doc(db, 'products', item.docRef);
     batch.update(sfRef, valuesToSend);
     message.success('Product has been updated successfully.');
@@ -40,6 +43,47 @@ function Index({ item }) {
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
   };
+
+  const handleFakeUpload = async ({ file, onSuccess }) => {
+    const imageRef = await ref(storage, `${file.name + v4()}`);
+    uploadBytes(imageRef, file).then((snapshot) => {
+      getDownloadURL(snapshot.ref).then((url) => {
+        setFiles([...files, url]);
+      });
+    });
+    setTimeout(() => {
+      onSuccess('ok');
+    }, 0);
+  };
+
+  // The following 4 functions are to display the pictures after upload
+  const handlePreview = async (file) => {
+    if (typeof file !== 'object') {
+      setPreviewImage(file);
+      setPreviewVisible(true);
+      setPreviewTitle(file);
+    } else {
+      if (!file.url && !file.preview) {
+        file.preview = await getBase64(file.originFileObj);
+      }
+      setPreviewImage(file.url || file.preview);
+      setPreviewVisible(true);
+      setPreviewTitle(
+        file.name || file.url.substring(file.url.lastIndexOf('/') + 1)
+      );
+    }
+  };
+
+  const handleCancel = () => setPreviewVisible(false);
+  const handleChange = ({ fileList: newFileList }) => setFileList(newFileList);
+
+  const getBase64 = (file) =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (error) => reject(error);
+    });
 
   return (
     <Container className='singleProduct'>
@@ -105,46 +149,60 @@ function Index({ item }) {
           <InputNumber placeholder='10' disabled={componentDisabled} />
         </Form.Item>
 
-        {!componentDisabled && (
+        <Form.Item
+          label='Gallery'
+          extra='The first image uploaded will be used as main product display'
+        >
           <Form.Item
-            name='image'
-            label='Main Display Image'
-            valuePropName='image'
+            name='gallery'
+            valuePropName='gallery'
             getValueFromEvent={normFile}
-            extra='Main image to be displayed'
+            noStyle
+            disabled={componentDisabled}
+            rules={[
+              {
+                required: true,
+                message: 'Please provide at least one image!',
+              },
+            ]}
           >
-            <Upload name='logo' action='/upload.do' listType='picture'>
-              <Button icon={<UploadOutlined />}>Upload</Button>
+            <Upload
+              customRequest={handleFakeUpload}
+              multiple
+              listType='picture-card'
+              fileList={fileList}
+              onPreview={handlePreview}
+              onChange={handleChange}
+              disabled={componentDisabled}
+            >
+              <div>
+                <PlusOutlined />
+                <div
+                  style={{
+                    marginTop: 8,
+                  }}
+                >
+                  Upload
+                </div>
+              </div>
             </Upload>
           </Form.Item>
-        )}
+        </Form.Item>
 
-        {!componentDisabled && (
-          <Form.Item label='Dragger'>
-            <Form.Item
-              name='gallery'
-              valuePropName='gallery'
-              getValueFromEvent={normFile}
-              noStyle
-            >
-              <Upload.Dragger
-                name='files'
-                action='/upload.do'
-                listType='picture'
-              >
-                <p className='ant-upload-drag-icon'>
-                  <InboxOutlined />
-                </p>
-                <p className='ant-upload-text'>
-                  Click or drag an image to this area to upload
-                </p>
-                <p className='ant-upload-hint'>
-                  Support for a single or bulk upload.
-                </p>
-              </Upload.Dragger>
-            </Form.Item>
-          </Form.Item>
-        )}
+        <Modal
+          visible={previewVisible}
+          title={previewTitle}
+          footer={null}
+          onCancel={handleCancel}
+        >
+          <img
+            alt='example'
+            style={{
+              width: '100%',
+            }}
+            src={previewImage}
+          />
+        </Modal>
 
         <Form.Item
           label='Description'

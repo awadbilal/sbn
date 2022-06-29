@@ -4,15 +4,16 @@ import Filter from './Filter';
 import Products from './Products';
 import Pagintation from './Pagintation';
 import CustomOrder from '../../Shared/CustomOrder';
-import { DATA } from '../../../Data/products';
 import { useLocation } from 'react-router-dom';
+import { collection, query, where, getDocs, orderBy } from 'firebase/firestore';
+import { db } from '../../../firebaseconfig';
 
 function Index() {
   const { state } = useLocation();
   const [filter, setFilter] = useState(state || 'All Products');
   const [sort, setSort] = useState('Popularity');
-  const [data, setData] = useState(DATA);
-  const [filteredData, setFilteredData] = useState(DATA);
+  const [data, setData] = useState();
+  const [filteredData, setFilteredData] = useState();
   const [dataToRender, setDataToRender] = useState([]);
   const [page, setPage] = useState(1);
   const [pageCount, setPageCount] = useState(1);
@@ -20,50 +21,57 @@ function Index() {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    setData(DATA);
-    setFilteredData(DATA);
-    setDataToRender(
-      DATA.sort((a, b) => (a.orderCount > b.orderCount ? -1 : 1)).slice(0, 12)
-    );
-    if (DATA.length > 12) setPageCount(Math.ceil(DATA.length / 12));
-    else setPageCount(1);
+    const DATA = [];
+    const q = query(collection(db, 'products'), orderBy('orderCount', 'desc'));
+
+    (async () => {
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach(async (doc) => {
+        await DATA.push({ ...doc.data(), docRef: doc.id });
+      });
+      await setData(DATA);
+      await setFilteredData(DATA);
+      await setDataToRender(DATA.slice(0, 12));
+      if (DATA?.length > 12) await setPageCount(Math.ceil(DATA?.length / 12));
+      else await setPageCount(1);
+    })();
   }, []);
 
   useEffect(() => {
     let newData = data;
     if (filter !== 'All Products') {
-      newData = data.filter((item) => item.category === filter);
-      if (newData.length > 12) setPageCount(Math.ceil(newData.length / 12));
+      newData = data?.filter((item) => item.category === filter);
+      if (newData?.length > 12) setPageCount(Math.ceil(newData?.length / 12));
       else setPageCount(1);
     } else {
       newData = data;
-      if (data.length > 12) setPageCount(Math.ceil(data.length / 12));
+      if (data?.length > 12) setPageCount(Math.ceil(data?.length / 12));
     }
 
     // eslint-disable-next-line default-case
     switch (sort) {
       case 'Popularity':
-        newData = newData.sort((a, b) =>
+        newData = newData?.sort((a, b) =>
           a.orderCount > b.orderCount ? -1 : 1
         );
         break;
       case 'Most Recent':
-        newData = newData.sort((a, b) => (a.added > b.added ? -1 : 1));
+        newData = newData?.sort((a, b) => (a.id > b.id ? -1 : 1));
         break;
       case 'Name':
-        newData = newData.sort((a, b) =>
+        newData = newData?.sort((a, b) =>
           a.title?.split(' ')[0] < b.title?.split(' ')[0] ? -1 : 1
         );
         break;
       case 'Price Down':
-        newData = newData.sort((a, b) => (a.price > b.price ? -1 : 1));
+        newData = newData?.sort((a, b) => (a.price > b.price ? -1 : 1));
         break;
       case 'Price Up':
-        newData = newData.sort((a, b) => (a.price < b.price ? -1 : 1));
+        newData = newData?.sort((a, b) => (a.price < b.price ? -1 : 1));
         break;
     }
     setFilteredData(newData);
-    setDataToRender(newData.slice(0, 12));
+    setDataToRender(newData?.slice(0, 12));
     setPage(1);
   }, [data, filter, sort]);
 
@@ -71,14 +79,14 @@ function Index() {
     let slice = [];
 
     if (page === index + 2) {
-      slice = filteredData.slice(12 * (page - 2), 12 * (page - 1));
-      if (slice.length !== 0) {
+      slice = filteredData?.slice(12 * (page - 2), 12 * (page - 1));
+      if (slice?.length !== 0) {
         setDataToRender(slice);
         setPage(page - 1);
       }
     } else if (page > index + 2) {
-      slice = filteredData.slice(12 * (index + 1), 12 * (index + 2));
-      if (slice.length !== 0) {
+      slice = filteredData?.slice(12 * (index + 1), 12 * (index + 2));
+      if (slice?.length !== 0) {
         setDataToRender(slice);
         setPage(index + 1);
       }
@@ -90,14 +98,14 @@ function Index() {
     let slice = [];
 
     if (page === index) {
-      slice = filteredData.slice(12 * page, 12 * (page + 1));
-      if (slice.length !== 0) {
+      slice = filteredData?.slice(12 * page, 12 * (page + 1));
+      if (slice?.length !== 0) {
         setDataToRender(slice);
         setPage(page + 1);
       }
     } else if (page < index) {
-      slice = filteredData.slice(12 * index, 12 * (index + 1));
-      if (slice.length !== 0) {
+      slice = filteredData?.slice(12 * index, 12 * (index + 1));
+      if (slice?.length !== 0) {
         setDataToRender(slice);
         setPage(index + 1);
       }

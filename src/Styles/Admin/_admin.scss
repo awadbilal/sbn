@@ -87,4 +87,12 @@
       padding: 1rem;
     }
   }
+
+  #addProduct {
+    @include size(100%, 100%);
+    padding: 3rem 2rem;
+    .buttonSection {
+      @include flexInfo(row, center, center, center);
+    }
+  }
 }

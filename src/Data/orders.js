@@ -1,5 +1,3 @@
-import shoesCatSquare from '../images/shoesCatSquare.jpg';
-
 export const ORDERS = [
   {
     id: 0,
@@ -14,7 +12,8 @@ export const ORDERS = [
     products: [
       {
         id: 0,
-        image: shoesCatSquare,
+        image:
+          'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
         title: 'Sneakers 101',
         price: 250,
         discount: 20,
@@ -24,7 +23,8 @@ export const ORDERS = [
       },
       {
         id: 1,
-        image: shoesCatSquare,
+        image:
+          'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
         title: 'Sneakers 202',
         price: 350,
         discount: 10,
@@ -47,7 +47,8 @@ export const ORDERS = [
     products: [
       {
         id: 1,
-        image: shoesCatSquare,
+        image:
+          'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
         title: 'Sneakers 202',
         price: 350,
         discount: 10,

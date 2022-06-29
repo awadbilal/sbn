@@ -1,20 +1,14 @@
-import shoesCatSquare from '../images/shoesCat.jpg';
-import bagsCatSquare from '../images/bagsCat.jpg';
-import hatsCatSquare from '../images/hatsCat.jpg';
-import accCatSquare from '../images/accCatSquare.jpg';
-
 export const DATA = [
   {
     id: 0,
     added: 0,
-    image: shoesCatSquare,
     gallery: [
-      shoesCatSquare,
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
       'neeeha',
-      bagsCatSquare,
-      shoesCatSquare,
-      accCatSquare,
-      hatsCatSquare,
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/bagsCat.jpg?alt=media&token=d89ec8f2-d7c6-493c-bc5b-5ecb809ebd27',
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/accCat.jpg?alt=media&token=595d6889-2fbb-4145-899c-ea5352d19cd0',
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/HatsCat.jpg?alt=media&token=44b2f625-dff2-49b9-bb9f-8812f557ad66',
     ],
     title: 'Alien',
     price: 250,
@@ -31,8 +25,9 @@ export const DATA = [
   {
     id: 1,
     added: 1,
-    image: shoesCatSquare,
-    gallery: [],
+    gallery: [
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
+    ],
     title: 'Some Sneaker',
     price: 350,
     discount: 10,
@@ -48,8 +43,9 @@ export const DATA = [
   {
     id: 2,
     added: 2,
-    image: shoesCatSquare,
-    gallery: [],
+    gallery: [
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
+    ],
     title: 'New Edition',
     price: 150,
     discount: 0,
@@ -65,8 +61,9 @@ export const DATA = [
   {
     id: 3,
     added: 3,
-    image: shoesCatSquare,
-    gallery: [],
+    gallery: [
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
+    ],
     title: 'Try This',
     price: 50,
     discount: 0,
@@ -82,8 +79,9 @@ export const DATA = [
   {
     id: 4,
     added: 4,
-    image: bagsCatSquare,
-    gallery: [],
+    gallery: [
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
+    ],
     title: 'Bag 1',
     price: 20,
     discount: 0,
@@ -96,8 +94,9 @@ export const DATA = [
   {
     id: 5,
     added: 5,
-    image: bagsCatSquare,
-    gallery: [],
+    gallery: [
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
+    ],
     title: 'Bag 2',
     price: 230,
     discount: 0,
@@ -110,8 +109,9 @@ export const DATA = [
   {
     id: 6,
     added: 6,
-    image: bagsCatSquare,
-    gallery: [],
+    gallery: [
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
+    ],
     title: 'Bag 3',
     price: 280,
     discount: 0,
@@ -124,8 +124,11 @@ export const DATA = [
   {
     id: 7,
     added: 7,
-    image: bagsCatSquare,
-    gallery: [bagsCatSquare, bagsCatSquare, bagsCatSquare],
+    gallery: [
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/bagsCat.jpg?alt=media&token=d89ec8f2-d7c6-493c-bc5b-5ecb809ebd27',
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/bagsCat.jpg?alt=media&token=d89ec8f2-d7c6-493c-bc5b-5ecb809ebd27',
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/bagsCat.jpg?alt=media&token=d89ec8f2-d7c6-493c-bc5b-5ecb809ebd27',
+    ],
     title: 'Bag 5',
     price: 300,
     discount: 0,
@@ -138,8 +141,9 @@ export const DATA = [
   {
     id: 8,
     added: 8,
-    image: hatsCatSquare,
-    gallery: [],
+    gallery: [
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
+    ],
     title: 'Hat 1',
     price: 1000,
     discount: 0,
@@ -152,8 +156,9 @@ export const DATA = [
   {
     id: 9,
     added: 9,
-    image: hatsCatSquare,
-    gallery: [],
+    gallery: [
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
+    ],
     title: 'Hat 2',
     price: 10,
     discount: 0,
@@ -166,8 +171,9 @@ export const DATA = [
   {
     id: 10,
     added: 10,
-    image: hatsCatSquare,
-    gallery: [],
+    gallery: [
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
+    ],
     title: 'Hat 3',
     price: 2,
     discount: 0,
@@ -180,8 +186,9 @@ export const DATA = [
   {
     id: 11,
     added: 11,
-    image: hatsCatSquare,
-    gallery: [],
+    gallery: [
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
+    ],
     title: 'Hat 4',
     price: 250,
     discount: 0,
@@ -194,8 +201,9 @@ export const DATA = [
   {
     id: 12,
     added: 12,
-    image: accCatSquare,
-    gallery: [],
+    gallery: [
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
+    ],
     title: 'Accessory 1',
     price: 250,
     discount: 0,
@@ -208,8 +216,9 @@ export const DATA = [
   {
     id: 13,
     added: 13,
-    image: accCatSquare,
-    gallery: [],
+    gallery: [
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
+    ],
     title: 'Accessory 2',
     price: 250,
     discount: 0,
@@ -222,8 +231,9 @@ export const DATA = [
   {
     id: 14,
     added: 14,
-    image: accCatSquare,
-    gallery: [],
+    gallery: [
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
+    ],
     title: 'Accessory 3',
     price: 250,
     discount: 0,
@@ -236,8 +246,9 @@ export const DATA = [
   {
     id: 15,
     added: 15,
-    image: accCatSquare,
-    gallery: [],
+    gallery: [
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
+    ],
     title: 'Accessory 4',
     price: 250,
     discount: 0,
@@ -250,8 +261,9 @@ export const DATA = [
   {
     id: 16,
     added: 16,
-    image: accCatSquare,
-    gallery: [],
+    gallery: [
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
+    ],
     title: 'Accessory 5',
     price: 250,
     discount: 0,
@@ -264,8 +276,9 @@ export const DATA = [
   {
     id: 17,
     added: 17,
-    image: accCatSquare,
-    gallery: [],
+    gallery: [
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
+    ],
     title: 'Accessory 6',
     price: 250,
     discount: 0,
@@ -278,8 +291,9 @@ export const DATA = [
   {
     id: 18,
     added: 18,
-    image: accCatSquare,
-    gallery: [],
+    gallery: [
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
+    ],
     title: 'Accessory 7',
     price: 250,
     discount: 0,
@@ -292,8 +306,9 @@ export const DATA = [
   {
     id: 19,
     added: 19,
-    image: accCatSquare,
-    gallery: [],
+    gallery: [
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
+    ],
     title: 'Accessory 8',
     price: 250,
     discount: 0,
@@ -306,8 +321,9 @@ export const DATA = [
   {
     id: 20,
     added: 20,
-    image: accCatSquare,
-    gallery: [],
+    gallery: [
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
+    ],
     title: 'Accessory 9',
     price: 250,
     discount: 0,
@@ -320,8 +336,9 @@ export const DATA = [
   {
     id: 21,
     added: 21,
-    image: accCatSquare,
-    gallery: [],
+    gallery: [
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
+    ],
     title: 'Accessory 10',
     price: 250,
     discount: 0,
@@ -334,8 +351,9 @@ export const DATA = [
   {
     id: 22,
     added: 22,
-    image: accCatSquare,
-    gallery: [],
+    gallery: [
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
+    ],
     title: 'Accessory 11',
     price: 250,
     discount: 0,
@@ -348,8 +366,9 @@ export const DATA = [
   {
     id: 23,
     added: 23,
-    image: accCatSquare,
-    gallery: [],
+    gallery: [
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
+    ],
     title: 'Accessory 12',
     price: 250,
     discount: 0,
@@ -362,8 +381,9 @@ export const DATA = [
   {
     id: 24,
     added: 24,
-    image: accCatSquare,
-    gallery: [],
+    gallery: [
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
+    ],
     title: 'Accessory 13',
     price: 250,
     discount: 0,
@@ -376,8 +396,9 @@ export const DATA = [
   {
     id: 25,
     added: 25,
-    image: accCatSquare,
-    gallery: [],
+    gallery: [
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
+    ],
     title: 'Accessory 14',
     price: 250,
     discount: 0,
@@ -390,8 +411,9 @@ export const DATA = [
   {
     id: 26,
     added: 26,
-    image: accCatSquare,
-    gallery: [],
+    gallery: [
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
+    ],
     title: 'Accessory 15',
     price: 250,
     discount: 0,
@@ -404,8 +426,9 @@ export const DATA = [
   {
     id: 27,
     added: 27,
-    image: accCatSquare,
-    gallery: [],
+    gallery: [
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
+    ],
     title: 'Accessory 16',
     price: 250,
     discount: 0,
@@ -418,8 +441,9 @@ export const DATA = [
   {
     id: 28,
     added: 28,
-    image: accCatSquare,
-    gallery: [],
+    gallery: [
+      'https://firebasestorage.googleapis.com/v0/b/splash-by-noor.appspot.com/o/shoesCat.jpg?alt=media&token=242c18ac-3408-4329-9c17-32b6ada8d5d7',
+    ],
     title: 'Accessory 17',
     price: 250,
     discount: 0,

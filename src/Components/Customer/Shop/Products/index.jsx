@@ -51,7 +51,7 @@ function Index({ data }) {
                     </Card.Body>
                     <Image
                       preview={false}
-                      src={item.image}
+                      src={item.gallery[0]}
                       style={{
                         width: '100%',
                         maxHeight: '251px',

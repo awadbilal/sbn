@@ -11,15 +11,10 @@ import {
   deleteDoc,
   orderBy,
 } from 'firebase/firestore';
-import { ref, getDownloadURL } from 'firebase/storage';
-import { db, storage } from '../../../firebaseconfig';
+import { db } from '../../../firebaseconfig';
 
 function Index() {
   const [dataToRender, setDataToRender] = useState();
-  console.log(
-    '🚀 ~ file: index.jsx ~ line 19 ~ Index ~ dataToRender',
-    dataToRender
-  );
   const [activeExpRow, setActiveExpRow] = useState();
   const [itemToDelete, setItemToDelete] = useState();
   const [openModal, setOpenModal] = useState(false);
@@ -30,15 +25,9 @@ function Index() {
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       const products = [];
       querySnapshot.forEach((doc) => {
-        const imageURL = getDownloadURL(ref(storage, `/${doc.data().image}`))
-          .then((url) => url)
-          .catch((error) => {
-            message.error(error.message);
-          });
         products.push({
           ...doc.data(),
           docRef: doc.id,
-          image: imageURL,
         });
       });
       setDataToRender(products);
@@ -71,10 +60,10 @@ function Index() {
     },
     {
       title: 'Image',
-      dataIndex: 'image',
-      key: 'image',
-      render: (image) => (
-        <img src={image} style={{ maxWidth: '75px', maxHeight: '75px' }} />
+      dataIndex: 'gallery',
+      key: 'gallery',
+      render: (gallery) => (
+        <img src={gallery[0]} style={{ maxWidth: '75px', maxHeight: '75px' }} />
       ),
       width: '10%',
     },

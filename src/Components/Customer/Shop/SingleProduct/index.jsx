@@ -8,14 +8,13 @@ function Index() {
   const location = useLocation();
   const { state } = location;
 
-  const { id, title, price, sizes, discount, image, gallery, description } =
-    state;
+  const { id, title, price, sizes, discount, gallery, description } = state;
 
   return (
     <Container id='singleProduct'>
       <Row className='row-equal-height topHalf'>
         <Col md={6} lg={6} xxl={6} className='topHalfCol'>
-          <img src={image} className='mainDisplay' alt={title} />
+          <img src={gallery[0]} className='mainDisplay' alt={title} />
         </Col>
         <Col md={6} lg={6} xxl={6} className='topHalfCol'>
           <Gallery images={gallery} />

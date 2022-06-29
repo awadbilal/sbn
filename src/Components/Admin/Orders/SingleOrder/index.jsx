@@ -15,7 +15,15 @@ function Index({ item }) {
                   bordered
                   hoverable
                   cover={
-                    <img alt={title} src={image} style={{ maxWidth: '100%' }} />
+                    <img
+                      alt={title}
+                      src={image}
+                      style={{
+                        maxWidth: '100%',
+                        maxHeight: '420px',
+                        objectFit: 'cover',
+                      }}
+                    />
                   }
                 >
                   <p>Price: {price} &#8378;</p>
