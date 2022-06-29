@@ -11,10 +11,15 @@ import {
   deleteDoc,
   orderBy,
 } from 'firebase/firestore';
-import { db } from '../../../firebaseconfig';
+import { ref, getDownloadURL } from 'firebase/storage';
+import { db, storage } from '../../../firebaseconfig';
 
 function Index() {
   const [dataToRender, setDataToRender] = useState();
+  console.log(
+    '🚀 ~ file: index.jsx ~ line 19 ~ Index ~ dataToRender',
+    dataToRender
+  );
   const [activeExpRow, setActiveExpRow] = useState();
   const [itemToDelete, setItemToDelete] = useState();
   const [openModal, setOpenModal] = useState(false);
@@ -23,11 +28,20 @@ function Index() {
   useEffect(() => {
     const q = query(collection(db, 'products'), orderBy('id'));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
-      const projects = [];
+      const products = [];
       querySnapshot.forEach((doc) => {
-        projects.push({ ...doc.data(), docRef: doc.id });
+        const imageURL = getDownloadURL(ref(storage, `/${doc.data().image}`))
+          .then((url) => url)
+          .catch((error) => {
+            message.error(error.message);
+          });
+        products.push({
+          ...doc.data(),
+          docRef: doc.id,
+          image: imageURL,
+        });
       });
-      setDataToRender(projects);
+      setDataToRender(products);
     });
   }, []);
 
