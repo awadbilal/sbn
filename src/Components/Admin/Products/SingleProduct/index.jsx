@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import {
   Button,
@@ -22,8 +22,15 @@ function Index({ item }) {
   const [previewVisible, setPreviewVisible] = useState(false);
   const [previewImage, setPreviewImage] = useState('');
   const [previewTitle, setPreviewTitle] = useState('');
-  const [fileList, setFileList] = useState(item.gallery);
-  const [files, setFiles] = useState([]);
+  const [fileList, setFileList] = useState([]);
+
+  useEffect(() => {
+    const newArr = [];
+    for (let i = 0; i < item.gallery.length; i++) {
+      newArr.push({ url: item.gallery[i] });
+    }
+    setFileList(newArr);
+  }, []);
 
   const normFile = (e) => {
     if (Array.isArray(e)) return e;
@@ -32,7 +39,11 @@ function Index({ item }) {
 
   const onFinish = async (values) => {
     const batch = await writeBatch(db);
-    let valuesToSend = await { ...item, ...values, gallery: files };
+    const newArr = [];
+    for (let i = 0; i < fileList.length; i++) {
+      newArr.push(fileList[i].url);
+    }
+    let valuesToSend = await { ...item, ...values, gallery: newArr };
     const sfRef = await doc(db, 'products', item.docRef);
     batch.update(sfRef, valuesToSend);
     message.success('Product has been updated successfully.');
@@ -48,7 +59,7 @@ function Index({ item }) {
     const imageRef = await ref(storage, `${file.name + v4()}`);
     uploadBytes(imageRef, file).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
-        setFiles([...files, url]);
+        setFileList([...fileList.filter((item) => !item.status), { url: url }]);
       });
     });
     setTimeout(() => {
@@ -58,20 +69,14 @@ function Index({ item }) {
 
   // The following 4 functions are to display the pictures after upload
   const handlePreview = async (file) => {
-    if (typeof file !== 'object') {
-      setPreviewImage(file);
-      setPreviewVisible(true);
-      setPreviewTitle(file);
-    } else {
-      if (!file.url && !file.preview) {
-        file.preview = await getBase64(file.originFileObj);
-      }
-      setPreviewImage(file.url || file.preview);
-      setPreviewVisible(true);
-      setPreviewTitle(
-        file.name || file.url.substring(file.url.lastIndexOf('/') + 1)
-      );
+    if (!file.url && !file.preview) {
+      file.preview = await getBase64(file.originFileObj);
     }
+    setPreviewImage(file.url || file.preview);
+    setPreviewVisible(true);
+    setPreviewTitle(
+      file.name || file.url.substring(file.url.lastIndexOf('/') + 1)
+    );
   };
 
   const handleCancel = () => setPreviewVisible(false);
