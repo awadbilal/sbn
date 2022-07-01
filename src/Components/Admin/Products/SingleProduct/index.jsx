@@ -27,7 +27,7 @@ function Index({ item }) {
   useEffect(() => {
     const newArr = [];
     for (let i = 0; i < item.gallery.length; i++) {
-      newArr.push({ url: item.gallery[i] });
+      newArr.push({ url: item.gallery[i], preview: item.gallery[i] });
     }
     setFileList(newArr);
   }, []);
@@ -59,7 +59,10 @@ function Index({ item }) {
     const imageRef = await ref(storage, `${file.name + v4()}`);
     uploadBytes(imageRef, file).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
-        setFileList([...fileList.filter((item) => !item.status), { url: url }]);
+        setFileList([
+          ...fileList.filter((item) => !item.status),
+          { url: url, preview: url },
+        ]);
       });
     });
     setTimeout(() => {
