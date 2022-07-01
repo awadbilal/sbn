@@ -1,8 +1,25 @@
-import React from 'react';
-import Banner from '../../Shared/Banner';
+import { doc, onSnapshot } from 'firebase/firestore';
+import React, { useEffect, useState } from 'react';
+import { Container } from 'react-bootstrap';
+import { db } from '../../../firebaseconfig';
+import Categories from './Categories';
+import Footer from './Footer';
 
 function Index() {
-  return <Banner title='Edit Page Layout' />;
+  const [footerInfo, setFooterInfo] = useState();
+
+  useEffect(() => {
+    const unsub = onSnapshot(doc(db, 'layout', 'footer'), (doc) => {
+      setFooterInfo(doc.data());
+    });
+  }, []);
+
+  return (
+    <Container id='editLayout'>
+      <Categories />
+      <Footer footerInfo={footerInfo} />
+    </Container>
+  );
 }
 
 export default Index;

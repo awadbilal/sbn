@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
-import HatsCat from '../../../../images/hatsCat.jpg';
-import BagsCat from '../../../../images/bagsCat.jpg';
-import ShoesCat from '../../../../images/shoesCat.jpg';
-import ShoesCatSquare from '../../../../images/shoesCatSquare.jpg';
-import AccCat from '../../../../images/accCat.jpg';
-import AccCatSquare from '../../../../images/accCatSquare.jpg';
 import { useNavigate } from 'react-router-dom';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../../../../firebaseconfig';
 
 function Index() {
   const navigate = useNavigate();
+  const [images, setImages] = useState();
+
+  useEffect(() => {
+    (async () => {
+      const docRef = doc(db, 'layout', 'categories');
+      const docSnap = await getDoc(docRef);
+      await setImages(docSnap.data());
+    })();
+  }, []);
 
   return (
     <Container id='categories' className='pt-5 pb-5'>
@@ -17,7 +22,7 @@ function Index() {
         className='hats'
         onClick={() => navigate('/shop', { state: 'Hats' })}
       >
-        <img src={HatsCat} className='categoryImage' alt='Shop Hats' />
+        <img src={images?.hats} className='categoryImage' alt='Shop Hats' />
         <div className='hoverOverlay'>
           <div className='image__title'>Hats</div>
         </div>
@@ -26,7 +31,7 @@ function Index() {
         className='bags'
         onClick={() => navigate('/shop', { state: 'Bags' })}
       >
-        <img src={BagsCat} className='categoryImage' alt='Shop Bags' />
+        <img src={images?.bags} className='categoryImage' alt='Shop Bags' />
         <div className='hoverOverlay'>
           <div className='image__title'>Bags</div>
         </div>
@@ -36,12 +41,12 @@ function Index() {
         onClick={() => navigate('/shop', { state: 'Sneakers' })}
       >
         <img
-          src={ShoesCat}
+          src={images?.sneakers}
           className='categoryImage responsiveHide'
           alt='Shop Shoes'
         />
         <img
-          src={ShoesCatSquare}
+          src={images?.sneakersSquare}
           className='categoryImage responsiveShow'
           alt='Shop Shoes'
         />
@@ -54,12 +59,12 @@ function Index() {
         onClick={() => navigate('/shop', { state: 'Accessories' })}
       >
         <img
-          src={AccCat}
+          src={images?.accessories}
           className='categoryImage responsiveHide'
           alt='Shop Accessories'
         />
         <img
-          src={AccCatSquare}
+          src={images?.accessoriesSquare}
           className='categoryImage responsiveShow'
           alt='Shop Accessories'
         />
