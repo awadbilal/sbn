@@ -11,7 +11,7 @@ function Index() {
   // The following listens for the data live and print it.
   useEffect(() => {
     const q = query(collection(db, 'messages'));
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+    onSnapshot(q, (querySnapshot) => {
       const users = [];
       querySnapshot.forEach((doc) => {
         users.push(doc.data());

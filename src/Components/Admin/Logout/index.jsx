@@ -1,10 +1,7 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import SadLogout from '../../../images/sadLogout.gif';
 
 function Index() {
-  const navigate = useNavigate();
-
   const handleLogout = () => {
     localStorage.removeItem('user');
     window.location.reload();
@@ -12,7 +9,7 @@ function Index() {
 
   return (
     <div id='adminLogout'>
-      <img src={SadLogout} />
+      <img src={SadLogout} alt='sad logout GIF' />
       <div>
         <button onClick={handleLogout}>Confirm Logout</button>
       </div>

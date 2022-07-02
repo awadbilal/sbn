@@ -9,7 +9,7 @@ function Index() {
   const [footerInfo, setFooterInfo] = useState();
 
   useEffect(() => {
-    const unsub = onSnapshot(doc(db, 'layout', 'footer'), (doc) => {
+    onSnapshot(doc(db, 'layout', 'footer'), (doc) => {
       setFooterInfo(doc.data());
     });
   }, []);

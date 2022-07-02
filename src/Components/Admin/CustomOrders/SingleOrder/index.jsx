@@ -1,6 +1,8 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
+
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import { Card, Col, Row } from 'antd';
+import { Card } from 'antd';
 
 function Index({ item }) {
   return (
