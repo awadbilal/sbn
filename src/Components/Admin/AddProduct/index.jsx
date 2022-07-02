@@ -41,10 +41,12 @@ function Index() {
   const onFinish = async (values) => {
     const q = query(collection(db, 'products'), orderBy('id', 'desc'));
     const querySnapshot = await getDocs(q);
-    const maxId = querySnapshot.docs[0].data().id;
 
     const formData = values;
-    formData.id = maxId + 1;
+    formData.id =
+      Array.isArray(querySnapshot?.docs) && querySnapshot?.docs.length !== 0
+        ? querySnapshot.docs[0].data().id + 1
+        : 0;
     formData.orderCount = 0;
     formData.gallery = files;
     if (selectedCategory === 'Sneakers')

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import ErrorNotFound from './Components/Shared/ErrorNotFound';
 import NavBar from './Components/Shared/Navbar';
@@ -14,6 +14,7 @@ import ContactUs from './Components/Customer/ContactUs';
 import Cart from './Components/Customer/Cart';
 import ThankYou from './Components/Customer/ThankYou';
 import Custom from './Components/Customer/Custom';
+import Account from './Components/Customer/Account';
 
 import Admin from './Components/Admin';
 
@@ -22,7 +23,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './Styles/style.scss';
 
 function App() {
-  const user = JSON.parse(localStorage.getItem('user'));
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
   return (
     <>
       {(user?.role === 'customer' || !user) && (
@@ -31,7 +32,7 @@ function App() {
           <Routes>
             <Route path='*' element={<ErrorNotFound />} />
             <Route exact path='/' element={<Home />} />
-            <Route exact path='/user' element={<User />} />
+            <Route exact path='/login' element={<User setUser={setUser} />} />
             <Route exact path='/shop' element={<Shop />} />
             <Route exact path='/about-us' element={<AboutUs />} />
             <Route exact path='/contact-us' element={<ContactUs />} />
@@ -41,6 +42,7 @@ function App() {
                 <Route exact path='/cart' element={<Cart />} />
                 <Route exact path='/customize' element={<Custom />} />
                 <Route exact path='/thank-you' element={<ThankYou />} />
+                <Route exact path='/account' element={<Account />} />
               </>
             )}
           </Routes>

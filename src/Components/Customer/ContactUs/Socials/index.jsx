@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { GrInstagram } from 'react-icons/gr';
 import { BsWhatsapp } from 'react-icons/bs';
 import { HiOutlineMail } from 'react-icons/hi';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../../../../firebaseconfig';
 
 function Index() {
+  const [links, setLinks] = useState();
+
+  useEffect(() => {
+    (async () => {
+      const docRef = doc(db, 'layout', 'footer');
+      const docSnap = await getDoc(docRef);
+      await setLinks(docSnap.data());
+    })();
+  }, []);
+
   return (
     <Container className='socials mt-5 mb-5'>
       <h1>Our Social Network</h1>
@@ -14,28 +26,38 @@ function Index() {
       </p>
       <Row className='row-equal-height' align='middle'>
         <Col md={4} lg={4} xxl={4}>
-          <Row>
-            <GrInstagram size={75} className='mb-4' />
-          </Row>
-          <Row>
-            <h4>@Splash_bynoor</h4>
-          </Row>
+          <a href={links?.instagram} target='_blank' rel='noreferrer'>
+            <Row>
+              <GrInstagram size={75} className='mb-4' />
+            </Row>
+            <Row>
+              <h4>@Splash_bynoor</h4>
+            </Row>
+          </a>
         </Col>
         <Col md={4} lg={4} xxl={4}>
-          <Row>
-            <BsWhatsapp size={75} className='mb-4' />
-          </Row>
-          <Row>
-            <h4>+90 545 545 54 54</h4>
-          </Row>
+          <a
+            href={`https://wa.me/+90${links?.whatsapp}`}
+            target='_blank'
+            rel='noreferrer'
+          >
+            <Row>
+              <BsWhatsapp size={75} className='mb-4' />
+            </Row>
+            <Row>
+              <h4>+90 {links?.whatsapp}</h4>
+            </Row>
+          </a>
         </Col>
         <Col md={4} lg={4} xxl={4}>
-          <Row>
-            <HiOutlineMail size={75} className='mb-4' />
-          </Row>
-          <Row>
-            <h4>help@splashbynoor.com</h4>
-          </Row>
+          <a href={`mailto:${links?.email}`} target='_blank' rel='noreferrer'>
+            <Row>
+              <HiOutlineMail size={75} className='mb-4' />
+            </Row>
+            <Row>
+              <h4>{links?.email}</h4>
+            </Row>
+          </a>
         </Col>
       </Row>
     </Container>

@@ -8,7 +8,8 @@ function Index() {
   const location = useLocation();
   const { state } = location;
 
-  const { id, title, price, sizes, discount, gallery, description } = state;
+  const { docRef, id, title, price, sizes, discount, gallery, description } =
+    state;
 
   return (
     <Container id='singleProduct'>
@@ -20,6 +21,7 @@ function Index() {
           <Gallery images={gallery} />
           <br />
           <Information
+            docRef={docRef}
             id={id}
             title={title}
             price={price}

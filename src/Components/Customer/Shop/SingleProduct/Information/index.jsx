@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { Dropdown } from 'react-bootstrap';
 import { BsArrowDown } from 'react-icons/bs';
 import { MdErrorOutline } from 'react-icons/md';
+import { writeBatch, doc } from 'firebase/firestore';
+import { db } from '../../../../../firebaseconfig';
+import { message } from 'antd';
 
-function Index({ id, title, price, discount, sizes }) {
+function Index({ docRef, id, title, price, discount, sizes }) {
   const [selectedSize, setSelectedSize] = useState('');
   const [showError, setShowError] = useState(false);
 
@@ -21,9 +24,31 @@ function Index({ id, title, price, discount, sizes }) {
     }
   }, [showError]);
 
-  const handleAdd = () => {
-    // Do nothing for now baby boy!
-    if (!selectedSize && sizes.length !== 0) return setShowError(true);
+  const handleAdd = async () => {
+    const batch = await writeBatch(db);
+    const updatedInfo = JSON.parse(localStorage.getItem('user'));
+
+    if (Array.isArray(sizes) && sizes.length !== 0) {
+      if (!selectedSize) return setShowError(true);
+      else {
+        updatedInfo.basket.push({
+          id: docRef,
+          size: selectedSize,
+        });
+      }
+    } else {
+      updatedInfo.basket.push({ id: docRef });
+    }
+
+    const sfRef = await doc(db, 'users', updatedInfo.docRef);
+    batch.update(sfRef, updatedInfo);
+    await batch
+      .commit()
+      .then(() => {
+        message.success('Item has been added to basket successfully');
+        localStorage.setItem('user', JSON.stringify(updatedInfo));
+      })
+      .catch((err) => message.error('An error has occured'));
   };
 
   return (

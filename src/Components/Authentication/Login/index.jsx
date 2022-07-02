@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../../../firebaseconfig';
 
-function Index({ logInData, setLogInData }) {
+function Index({ logInData, setLogInData, setUser }) {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -33,8 +33,9 @@ function Index({ logInData, setLogInData }) {
         'user',
         JSON.stringify({ ...userInfo, docRef: querySnapshot.docs[0].id })
       );
+      setUser({ ...userInfo, docRef: querySnapshot.docs[0].id });
       navigate('/');
-      window.location.reload();
+      if (userInfo.role === 'admin') window.location.reload();
     } else {
       message.warn('Incorrect Credentials');
     }

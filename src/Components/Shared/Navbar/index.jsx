@@ -94,7 +94,7 @@ const Index = () => {
                     </Link>
                   </>
                 ) : (
-                  <Link to='/user' className='highlight'>
+                  <Link to='/login' className='highlight'>
                     <button className='loginButton'>Login / Signup</button>
                   </Link>
                 )}

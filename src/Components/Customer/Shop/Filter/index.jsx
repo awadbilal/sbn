@@ -9,8 +9,8 @@ function Index({ filter, setFilter, sort, setSort, productsRef }) {
       title: 'Popularity',
     },
     {
-      name: 'Most Recent',
-      title: 'Most Recent',
+      name: 'Discount',
+      title: 'Discount',
     },
     {
       name: 'Name',

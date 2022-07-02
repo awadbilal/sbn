@@ -44,11 +44,7 @@ const Index = () => {
             </a>
           </Col>
           <Col sm={4} md={4} lg={4}>
-            <a
-              href={`mailto:${links?.whatsapp}`}
-              target='_blank'
-              rel='noreferrer'
-            >
+            <a href={`mailto:${links?.email}`} target='_blank' rel='noreferrer'>
               <IoMailOutline className='icon' />
             </a>
           </Col>

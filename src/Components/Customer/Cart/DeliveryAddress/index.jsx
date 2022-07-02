@@ -55,7 +55,8 @@ function Index({ formData, handleChange }) {
     {
       title: 'Full Address',
       value: formData.full,
-      placeHolder: 'İstanbul, Beşiktaş, 760 Sokak, Bina 25. D Block, Daire 16',
+      placeHolder:
+        'İSTANBUL / TÜRKİYE, 34353 Beşiktaş, Çırağan Caddesi, Osmanpaşa Mektebi Sokak, Bina 16, Daire 16',
       name: 'full',
       type: 'textarea',
     },

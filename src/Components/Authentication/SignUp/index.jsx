@@ -12,7 +12,7 @@ import {
 } from 'firebase/firestore';
 import { db } from '../../../firebaseconfig';
 
-function Index({ signUpData, setSignUpData }) {
+function Index({ signUpData, setSignUpData, setUser }) {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -49,16 +49,33 @@ function Index({ signUpData, setSignUpData }) {
       const usersQuery = await getDocs(
         query(collection(db, 'users'), orderBy('id', 'desc'))
       );
-      const maxId = usersQuery.docs[0].data().id;
       const docRef = await addDoc(collection(db, 'users'), {
         ...signUpData,
-        id: maxId + 1,
+        id:
+          Array.isArray(usersQuery) && usersQuery.length !== 0
+            ? usersQuery.docs[0].data().id + 1
+            : 0,
       });
       message.success(`Welcome on board ${name} ${surname}`);
       localStorage.setItem(
         'user',
-        JSON.stringify({ ...signUpData, docRef: docRef.id, id: maxId + 1 })
+        JSON.stringify({
+          ...signUpData,
+          docRef: docRef.id,
+          id:
+            Array.isArray(usersQuery) && usersQuery.length !== 0
+              ? usersQuery.docs[0].data().id + 1
+              : 0,
+        })
       );
+      setUser({
+        ...signUpData,
+        docRef: docRef.id,
+        id:
+          Array.isArray(usersQuery) && usersQuery.length !== 0
+            ? usersQuery.docs[0].data().id + 1
+            : 0,
+      });
       navigate('/');
     }
   };

@@ -5,13 +5,17 @@ import { Layout, Menu } from 'antd';
 import EditLayout from './EditLayout';
 import Products from './Products';
 import AddProduct from './AddProduct';
-import Order from './Orders';
+import Orders from './Orders';
+import CustomOrders from './CustomOrders';
 import Users from './Users';
+import Messages from './Messages';
 import Logout from './Logout';
 import { HiClipboardList } from 'react-icons/hi';
 import { RiLayoutMasonryFill, RiLogoutCircleRLine } from 'react-icons/ri';
 import { FiPackage } from 'react-icons/fi';
 import { BsPlusLg } from 'react-icons/bs';
+import { BiMessageSquareDetail } from 'react-icons/bi';
+import { MdOutlineStyle } from 'react-icons/md';
 
 const { Content, Sider } = Layout;
 
@@ -25,12 +29,14 @@ function getItem(label, key, icon, children) {
 }
 
 const items = [
-  getItem('Layout', '1', <RiLayoutMasonryFill />),
-  getItem('Add Product', '2', <BsPlusLg />),
-  getItem('Products', '3', <HiClipboardList />),
-  getItem('Orders', '4', <FiPackage />),
+  getItem('Add Product', '1', <BsPlusLg />),
+  getItem('Products', '2', <HiClipboardList />),
+  getItem('Orders', '3', <FiPackage />),
+  getItem('Customs', '4', <MdOutlineStyle />),
   getItem('Users', '5', <TeamOutlined />),
-  getItem('Logout', '6', <RiLogoutCircleRLine />),
+  getItem('Messages', '6', <BiMessageSquareDetail />),
+  getItem('Edit Layout', '7', <RiLayoutMasonryFill />),
+  getItem('Logout', '8', <RiLogoutCircleRLine />),
 ];
 
 function Index() {
@@ -41,25 +47,31 @@ function Index() {
   useEffect(() => {
     switch (selectedKey) {
       case '1':
-        setComponentToRender(<EditLayout />);
-        break;
-      case '2':
         setComponentToRender(<AddProduct />);
         break;
-      case '3':
+      case '2':
         setComponentToRender(<Products />);
         break;
+      case '3':
+        setComponentToRender(<Orders />);
+        break;
       case '4':
-        setComponentToRender(<Order />);
+        setComponentToRender(<CustomOrders />);
         break;
       case '5':
         setComponentToRender(<Users />);
         break;
       case '6':
+        setComponentToRender(<Messages />);
+        break;
+      case '7':
+        setComponentToRender(<EditLayout />);
+        break;
+      case '8':
         setComponentToRender(<Logout />);
         break;
       default:
-        setComponentToRender(<EditLayout />);
+        setComponentToRender(<AddProduct />);
     }
   }, [selectedKey]);
 

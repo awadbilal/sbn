@@ -5,7 +5,7 @@ import Products from './Products';
 import Pagintation from './Pagintation';
 import CustomOrder from '../../Shared/CustomOrder';
 import { useLocation } from 'react-router-dom';
-import { collection, query, where, getDocs, orderBy } from 'firebase/firestore';
+import { collection, query, getDocs, orderBy } from 'firebase/firestore';
 import { db } from '../../../firebaseconfig';
 
 function Index() {
@@ -55,8 +55,8 @@ function Index() {
           a.orderCount > b.orderCount ? -1 : 1
         );
         break;
-      case 'Most Recent':
-        newData = newData?.sort((a, b) => (a.id > b.id ? -1 : 1));
+      case 'Discount':
+        newData = newData?.sort((a, b) => (a.discount > b.discount ? -1 : 1));
         break;
       case 'Name':
         newData = newData?.sort((a, b) =>

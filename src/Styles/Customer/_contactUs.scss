@@ -1,13 +1,12 @@
 #contactUs {
-  h1 {
-    font-weight: 600;
-    font-size: 2.5rem;
-    line-height: 4.5rem;
-    color: $lightBlue;
-    margin-bottom: 2rem;
-  }
-
   .socials {
+    h1 {
+      font-weight: 600;
+      font-size: 2.5rem;
+      line-height: 4.5rem;
+      color: $lightBlue;
+      margin-bottom: 2rem;
+    }
     p {
       text-align: center;
       font-weight: 500;
@@ -16,20 +15,31 @@
       color: $primaryColor;
       margin-bottom: 3rem;
     }
+    a {
+      text-decoration: none;
+      color: $pink;
+      &:hover {
+        color: $lightBlue;
+        h4 {
+          color: $lightBlue;
+        }
+      }
+    }
     h4 {
       font-weight: 600;
       font-size: 1.5rem;
       color: $pink;
     }
-    path {
-      color: $pink;
-      &:hover {
-        color: $lightBlue;
-      }
-    }
   }
 
   .emailForm {
+    h1 {
+      font-weight: 600;
+      font-size: 2.5rem;
+      line-height: 4.5rem;
+      color: $lightBlue;
+      margin-bottom: 2rem;
+    }
     p {
       font-weight: 600;
       font-size: 1.5rem;
