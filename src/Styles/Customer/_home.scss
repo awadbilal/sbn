@@ -79,8 +79,8 @@
       @include imageStray(absolute, 35rem, 0, 53rem);
     }
 
-    @media only screen and (max-width: 991px) {
-      @include size(100%, 50vh);
+    @media only screen and (max-width: 992px) {
+      @include size(100%, 100%);
       @include flexInfo(column, center, center, center);
       .desktop {
         display: none;
@@ -90,6 +90,8 @@
       }
       h1 {
         text-align: center;
+        font-size: 2.5rem;
+        line-height: 2.5rem;
       }
     }
   }
@@ -116,21 +118,6 @@
     .accessories {
       grid-area: accessories;
     }
-    .responsiveShow {
-      display: none !important;
-    }
-    @media only screen and (max-width: 992px) {
-      .responsiveHide {
-        display: none !important;
-      }
-      .responsiveShow {
-        display: block !important;
-      }
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-areas:
-        'hats bags'
-        'accessories shoes';
-    }
     .hats,
     .bags,
     .shoes,
@@ -147,7 +134,6 @@
       display: block;
     }
     .hoverOverlay {
-      @include responsiveRemove();
       position: absolute;
       top: 0;
       left: 0;
@@ -184,6 +170,38 @@
       text-align: center;
       letter-spacing: 0.2em;
       color: #ffffff;
+    }
+
+    .responsiveShow {
+      display: none !important;
+    }
+
+    @media only screen and (max-width: 992px) {
+      @include size(100%, 100%);
+      gap: 0 2em;
+      .responsiveHide,
+      .hoverOverlay {
+        display: none !important;
+      }
+      .responsiveShow {
+        display: block !important;
+        font-size: 2rem;
+        color: $pink;
+        margin: 1rem 0 0 0;
+        text-align: center;
+      }
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas:
+        'hats bags'
+        'accessories shoes';
+    }
+
+    @media only screen and (max-width: 768px) {
+      @include size(100%, 100%);
+      .responsiveShow {
+        font-size: 1.1rem;
+        text-align: center;
+      }
     }
   }
 }

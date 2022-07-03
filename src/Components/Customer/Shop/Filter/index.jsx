@@ -1,5 +1,6 @@
 import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Dropdown, Row } from 'react-bootstrap';
+import { BsArrowDown } from 'react-icons/bs';
 import { IoFilter } from 'react-icons/io5';
 
 function Index({ filter, setFilter, sort, setSort, productsRef }) {
@@ -49,10 +50,10 @@ function Index({ filter, setFilter, sort, setSort, productsRef }) {
   ];
   return (
     <Container id='filter' ref={productsRef}>
-      <Col xs md={1} lg={1} xxl={1}>
+      <Col xs md={1} lg={1} xxl={1} className='remove desktop'>
         <IoFilter size={'4rem'} />
       </Col>
-      <Col className='innerContainer'>
+      <Col className='innerContainer desktop'>
         <Row className='sortingRow row-equal-height'>
           <Col md={2} lg={2} xxl={2}>
             Sort By
@@ -74,7 +75,7 @@ function Index({ filter, setFilter, sort, setSort, productsRef }) {
         <div>
           <br />
         </div>
-        <Row className='filterRow row-equal-height'>
+        <Row className='row-equal-height'>
           <Col md={2} lg={2} xxl={2}>
             Category
           </Col>
@@ -91,6 +92,66 @@ function Index({ filter, setFilter, sort, setSort, productsRef }) {
               </Col>
             );
           })}
+        </Row>
+      </Col>
+
+      <Col className='innerContainer mobile' sm={12} md={12} lg={12}>
+        <Row className='row-equal-height'>
+          <Col md={5} sm={5} lg={5}>
+            <Dropdown
+              className='sizeDropDown mt-4'
+              onSelect={(e) => setSort(e)}
+            >
+              <Dropdown.Toggle id='dropdown-autoclose-true'>
+                <span className='dropDownText ps-2 pe-2'>
+                  {sort ? (
+                    SORTING.filter((item) => item.name === sort)[0]?.title
+                  ) : (
+                    <>
+                      <span>Sort By</span>
+                      <BsArrowDown size={22} color='#ee3364' />
+                    </>
+                  )}
+                </span>
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu flip={false} className='dropDownMenu'>
+                {SORTING.map(({ title, name }, i) => (
+                  <Dropdown.Item key={`sorting${name}`} eventKey={name}>
+                    {title}
+                  </Dropdown.Item>
+                ))}
+              </Dropdown.Menu>
+            </Dropdown>
+          </Col>
+
+          <Col md={5} sm={5} lg={5}>
+            <Dropdown
+              className='sizeDropDown mt-4'
+              onSelect={(e) => setFilter(e)}
+            >
+              <Dropdown.Toggle id='dropdown-autoclose-true'>
+                <span className='dropDownText ps-2 pe-2'>
+                  {filter ? (
+                    FILTERING.filter((item) => item.name === filter)[0]?.title
+                  ) : (
+                    <>
+                      <span>Category</span>
+                      <BsArrowDown size={22} color='#ee3364' />
+                    </>
+                  )}
+                </span>
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu flip={false} className='dropDownMenu'>
+                {FILTERING.map(({ title, name }, i) => (
+                  <Dropdown.Item key={`filtering${name}`} eventKey={name}>
+                    {title}
+                  </Dropdown.Item>
+                ))}
+              </Dropdown.Menu>
+            </Dropdown>
+          </Col>
         </Row>
       </Col>
     </Container>

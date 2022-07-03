@@ -28,6 +28,103 @@
         color: $pink;
       }
     }
+
+    .mobile {
+      display: none;
+    }
+
+    .sizeDropDown {
+      width: 100%;
+      background-color: white;
+      border: 2px solid $pink;
+      border-radius: 10px;
+      #dropdown-autoclose-true {
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        color: $secondaryColor;
+        font-weight: 400;
+        font-size: 1.25rem;
+        text-align: start;
+        &::after {
+          display: none;
+          border: none;
+        }
+        &:focus {
+          outline: none;
+          box-shadow: none;
+          border: none;
+        }
+        .dropDownText {
+          @include flexInfo(row, space-between, center, center);
+        }
+      }
+      .dropDownMenu {
+        min-width: 100%;
+        max-height: 15rem;
+        overflow: auto;
+        border-bottom: 2px solid $pink;
+        border-right: 2px solid $pink;
+        border-left: 2px solid $pink;
+        border-radius: 10px;
+        &::-webkit-scrollbar {
+          width: 6px;
+          height: 30%;
+          background-color: #f5f5f5;
+          scrollbar-color: $lightBlue;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background: rgba(0, 0, 0, 0.2);
+          border-radius: 10px;
+          -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+          background-color: $lightBlue;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 992px) {
+      .remove {
+        display: none;
+      }
+      .innerContainer {
+        .col-xxl-2,
+        .col-lg-2,
+        .col-md-2 {
+          font-size: 1.2rem;
+          button {
+            @include size(95%, 100%);
+            font-size: 1rem !important;
+          }
+        }
+      }
+    }
+
+    @media only screen and (max-width: 768px) {
+      @include flexInfo(row, center, center, center);
+      margin: 1.5rem 0 2rem 0;
+      padding-bottom: 2rem;
+      .desktop {
+        display: none;
+      }
+      .mobile {
+        display: block;
+      }
+      .innerContainer {
+        @include size(100%, 100%);
+        .row-equal-height,
+        .row {
+          @include size(100%, 100%);
+          @include flexInfo(row, center, center, center);
+        }
+        .col-xxl-5,
+        .col-lg-5,
+        .col-md-5 {
+          @include size(45%, 100%);
+          @include flexInfo(row, center, center, center);
+        }
+      }
+    }
   }
 
   #products {
@@ -67,6 +164,30 @@
         }
       }
     }
+
+    @media only screen and (max-width: 992px) {
+      .cardContainer {
+        img {
+          max-height: 200px !important;
+        }
+        p {
+          font-size: 1.1rem;
+          .price {
+            .originalPrice {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+
+    @media only screen and (max-width: 768px) {
+      .cardContainer {
+        img {
+          max-height: 251px !important;
+        }
+      }
+    }
   }
 
   #pagintation {
@@ -98,144 +219,38 @@
         background-color: $pink;
       }
     }
-  }
-}
 
-#singleProduct {
-  @include size(100%, 100%);
-  .topHalf {
-    .topHalfCol {
-      padding: 3rem 1rem;
-      @include flexInfo(column, flex-start, center, center);
-      .mainDisplay {
-        min-width: 100%;
-        max-width: 100%;
-        max-height: 79vh;
-        object-fit: cover;
-      }
-      .ant-image-mask {
-        margin-bottom: 1rem;
-      }
-      .productInformation {
-        padding-left: 0.75rem;
-        min-width: 100%;
-        p {
-          font-weight: 400;
-          font-size: 1.125rem;
-          color: $secondaryColor;
-          margin-bottom: 1rem;
-        }
-        h1 {
-          font-weight: 400;
-          font-size: 2.25rem;
-          color: $primaryColor;
-          .originalPrice {
-            color: $secondaryColor;
-            font-size: 1.5rem;
-            position: relative;
-            margin-right: 1rem;
-            &:before {
-              position: absolute;
-              content: '';
-              left: 0;
-              top: 45%;
-              right: 0;
-              border-top: 1px solid $secondaryColor;
-              border-color: inherit;
-              -webkit-transform: skewY(-10deg);
-              -moz-transform: skewY(-10deg);
-              transform: skewY(-10deg);
-            }
-          }
-        }
-        .discountRate {
-          color: $pink;
-        }
-        .sizeDropDown {
-          width: 32%;
-          background-color: white;
-          border: 2px solid $pink;
-          border-radius: 10px;
-          #dropdown-autoclose-true {
-            width: 100%;
-            background-color: transparent;
-            border: none;
-            color: $secondaryColor;
-            font-weight: 400;
-            font-size: 1.25rem;
-            text-align: start;
-            &::after {
-              display: none;
-              border: none;
-            }
-            &:focus {
-              outline: none;
-              box-shadow: none;
-              border: none;
-            }
-            .dropDownText {
-              @include flexInfo(row, space-between, center, center);
-            }
-          }
-          .dropDownMenu {
-            min-width: 100%;
-            max-height: 15rem;
-            overflow: auto;
-            border-bottom: 2px solid $pink;
-            border-right: 2px solid $pink;
-            border-left: 2px solid $pink;
-            border-radius: 10px;
-            &::-webkit-scrollbar {
-              width: 6px;
-              height: 30%;
-              background-color: #f5f5f5;
-              scrollbar-color: $lightBlue;
-            }
-
-            &::-webkit-scrollbar-thumb {
-              background: rgba(0, 0, 0, 0.2);
-              border-radius: 10px;
-              -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-              background-color: $lightBlue;
-            }
-          }
-        }
-        .addToCart {
-          border: none;
-          border-radius: 7px;
-          margin-top: 2rem;
-          width: 32%;
-          height: 3.5rem;
-          background-color: $pink;
-          color: white;
-          font-weight: 600;
-          font-size: 1.5rem;
-          text-align: center;
+    @media only screen and (max-width: 992px) {
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+      .outerDiv {
+        width: 2.5rem;
+        height: 2.5rem;
+        margin-right: 1rem;
+        .innerDiv {
+          width: 2rem;
+          height: 2rem;
           &:hover {
-            background-color: $lightBlue;
-          }
-          &:disabled {
-            background-color: $pink;
-            opacity: 75%;
-            cursor: not-allowed;
+            width: 2rem;
+            height: 2rem;
           }
         }
       }
     }
-  }
-  .bottomHalf {
-    padding: 0 1rem 3rem 1rem;
-    font-size: 1.5rem;
-    line-height: 2.75rem;
-    h1 {
-      font-weight: 400;
-      font-size: 2.25rem;
-      margin-bottom: 2rem;
-      color: $lightBlue;
-    }
-    p {
-      font-weight: 400;
-      color: $secondaryColor;
+
+    @media only screen and (max-width: 768px) {
+      .outerDiv {
+        width: 2rem;
+        height: 2rem;
+        .innerDiv {
+          width: 1.5rem;
+          height: 1.5rem;
+          &:hover {
+            width: 1.5rem;
+            height: 1.5rem;
+          }
+        }
+      }
     }
   }
 }

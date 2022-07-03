@@ -28,7 +28,7 @@ const Index = () => {
         </Link>
       </Col>
       <Col md={4} lg={4}>
-        <Row>
+        <Row className='mobileResponsive'>
           <Col sm={4} md={4} lg={4}>
             <a href={links?.instagram} target='_blank' rel='noreferrer'>
               <BsInstagram className='icon' />

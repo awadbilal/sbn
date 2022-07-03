@@ -10,4 +10,11 @@
     text-align: center;
     color: $pink;
   }
+
+  @media only screen and (max-width: 768px) {
+    @include size(100%, 15vh);
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
 }

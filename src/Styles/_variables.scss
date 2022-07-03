@@ -15,11 +15,6 @@
   top: $top;
   left: $left;
 }
-@mixin responsiveRemove() {
-  @media only screen and (max-width: 992px) {
-    display: none;
-  }
-}
 
 $primary-color: crimson;
 $primaryColor: #0b0b0b;
@@ -28,3 +23,9 @@ $pink: #ee3364;
 $lightBlue: #00bec5;
 $productBorder: #edebe0;
 $placeholder: #2d2d2d;
+
+// @media only screen and (max-width: 992px) {
+// }
+
+// @media only screen and (max-width: 768px) {
+// }

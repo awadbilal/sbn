@@ -29,16 +29,6 @@ const Index = () => {
               <img src={Logo} className='logo' alt='Splash By Noor.' />
             </Link>
           </Navbar.Brand>
-          <Nav className='responsiveShow'>
-            <Nav.Link eventKey={pages.length + 2}>
-              <Link
-                to='cart'
-                className={'highlight' + (url === '/cart' ? ' active' : '')}
-              >
-                <RiShoppingBagFill className='icon' size='4rem' />
-              </Link>
-            </Nav.Link>
-          </Nav>
           <Navbar.Toggle aria-controls='responsive-navbar-nav' />
           <Navbar.Collapse id='responsive-navbar-nav col-9'>
             <Nav className='me-auto pt-3 pb-3'>
@@ -71,6 +61,47 @@ const Index = () => {
                   </>
                 );
               })}
+
+              {user ? (
+                <>
+                  <Nav.Link
+                    eventKey={pages.length + 2}
+                    className='responsiveShow'
+                  >
+                    <Link
+                      to='/account'
+                      className={
+                        'highlight' + (url === '/account' ? ' active' : '')
+                      }
+                    >
+                      Profile
+                    </Link>
+                  </Nav.Link>
+                  <NavDropdown.Divider />
+                  <Nav.Link
+                    eventKey={pages.length + 3}
+                    className='responsiveShow'
+                  >
+                    <Link
+                      to='/cart'
+                      className={
+                        'highlight' + (url === '/cart' ? ' active' : '')
+                      }
+                    >
+                      Cart
+                    </Link>
+                  </Nav.Link>
+                </>
+              ) : (
+                <Nav.Link
+                  eventKey={pages.length + 2}
+                  className='responsiveShow'
+                >
+                  <Link to='/login' className='highlight'>
+                    <button className='loginButton'>Login / Signup</button>
+                  </Link>
+                </Nav.Link>
+              )}
             </Nav>
             <Nav className='responsiveNone'>
               <Nav.Link eventKey={pages.length + 2}>
@@ -94,7 +125,7 @@ const Index = () => {
                     </Link>
                   </>
                 ) : (
-                  <Link to='/login' className='highlight'>
+                  <Link to='/login' className='highlight buttonHighlight'>
                     <button className='loginButton'>Login / Signup</button>
                   </Link>
                 )}

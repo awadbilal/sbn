@@ -57,15 +57,20 @@
       }
     }
   }
-  .responsiveNone {
-    @media only screen and (max-width: 992px) {
-      display: none;
-    }
-  }
   .responsiveShow {
     display: none;
-    @media only screen and (max-width: 992px) {
+  }
+
+  @media only screen and (max-width: 992px) {
+    .responsiveNone {
+      display: none;
+    }
+    .responsiveShow {
       display: block;
+      .buttonHighlight {
+        width: 100%;
+        @include flexInfo(column, center, center, center);
+      }
     }
   }
 }

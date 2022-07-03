@@ -26,6 +26,7 @@ function Index() {
         <div className='hoverOverlay'>
           <div className='image__title'>Hats</div>
         </div>
+        <p className='responsiveShow'>Hats</p>
       </div>
       <div
         className='bags'
@@ -35,6 +36,7 @@ function Index() {
         <div className='hoverOverlay'>
           <div className='image__title'>Bags</div>
         </div>
+        <p className='responsiveShow'>Bags</p>
       </div>
       <div
         className='shoes'
@@ -53,6 +55,7 @@ function Index() {
         <div className='hoverOverlay'>
           <div className='image__title'>Shoes</div>
         </div>
+        <p className='responsiveShow'>Sneakers</p>
       </div>
       <div
         className='accessories'
@@ -71,6 +74,7 @@ function Index() {
         <div className='hoverOverlay'>
           <div className='image__title'>Accessories</div>
         </div>
+        <p className='responsiveShow'>Accessories</p>
       </div>
     </Container>
   );
