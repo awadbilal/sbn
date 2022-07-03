@@ -1,0 +1,147 @@
+#accountPage {
+  .site-layout .site-layout-background {
+    background: #fff;
+  }
+
+  .navigationPanel {
+    background-color: #ffffff;
+    padding: 2rem 0 4rem 0;
+
+    .navigationPanelMenu {
+      background-color: #ffffff;
+      li {
+        color: $primaryColor;
+        &:hover,
+        &:active {
+          color: $lightBlue;
+        }
+        font-size: 1.25rem;
+      }
+
+      .ant-menu-item-selected {
+        color: $pink;
+        opacity: 100%;
+        background-color: #ffffff;
+        svg,
+        span {
+          color: $pink;
+          opacity: 100%;
+          background-color: #ffffff;
+        }
+      }
+    }
+
+    .ant-menu-inline-collapsed {
+      li {
+        .ant-menu-title-content {
+          display: none;
+        }
+      }
+    }
+
+    .ant-layout-sider-trigger {
+      position: initial;
+      margin-bottom: 2rem;
+      color: $pink;
+      font-size: 2rem;
+      background-color: #ffffff;
+      &:hover {
+        color: $lightBlue;
+      }
+    }
+  }
+
+  #settings {
+    max-height: 83vh;
+    h1 {
+      font-weight: 500;
+      font-size: 2.5rem;
+      line-height: 4.5rem;
+      color: $lightBlue;
+      margin-bottom: 2rem;
+    }
+    p {
+      font-weight: 600;
+      font-size: 1.5rem;
+      line-height: 2rem;
+      color: $primaryColor;
+      margin-bottom: 3rem;
+    }
+    input,
+    textarea {
+      width: 100%;
+      height: 3rem;
+      padding-left: 1.5rem;
+      border: 2px solid $pink;
+      border-radius: 10px;
+      &:focus {
+        border: 2px solid $lightBlue;
+        border-radius: 10px;
+        outline-offset: 0px;
+        outline: none;
+      }
+    }
+    textarea {
+      height: 10rem;
+      padding-top: 1rem;
+    }
+    span {
+      font-weight: 600;
+      font-size: 1.5rem;
+      color: $pink;
+    }
+    button {
+      background-color: transparent;
+      border: 3px solid $pink;
+      color: $pink;
+      border-radius: 50%;
+      width: 5rem;
+      height: 5rem;
+      margin: 2rem 1rem;
+      &:hover {
+        border: 3px solid $lightBlue;
+        color: $lightBlue;
+        box-shadow: none;
+        outline: none;
+      }
+      &:disabled {
+        opacity: 50%;
+        cursor: not-allowed;
+        &:hover {
+          border: 3px solid $pink;
+          color: $pink;
+          box-shadow: none;
+          outline: none;
+        }
+      }
+    }
+  }
+
+  #userLogout {
+    @include size(100%, 100%);
+    @include flexInfo(column, center, center, center);
+    button {
+      padding: 0 1.5rem;
+      font-size: 1.5rem;
+      margin-top: 3rem;
+      width: 100%;
+      height: 4rem;
+      background-color: $pink;
+      color: #ffffff;
+      border: none;
+      border-radius: 10px;
+      &:hover {
+        background-color: $lightBlue;
+        box-shadow: none;
+        outline: none;
+      }
+    }
+  }
+
+  #ordersList {
+    .singleOrder {
+      @include size(100%, 100%);
+      padding: 1rem;
+    }
+  }
+}
