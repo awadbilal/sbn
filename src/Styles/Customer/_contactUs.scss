@@ -1,5 +1,8 @@
 #contactUs {
   .socials {
+    .row {
+      @include flexInfo(row, space-around, center, center);
+    }
     h1 {
       font-weight: 500;
       font-size: 2.5rem;
@@ -71,18 +74,45 @@
       color: $pink;
     }
     button {
+      @include size(5rem, 5rem);
       background-color: transparent;
       border: 3px solid $pink;
       color: $pink;
       border-radius: 50%;
-      width: 5rem;
-      height: 5rem;
       margin: 2rem 1rem;
       &:hover {
         border: 3px solid $lightBlue;
         color: $lightBlue;
         box-shadow: none;
         outline: none;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1200px) {
+    .socials,
+    .emailForm {
+      padding: 0 1rem;
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        line-height: 2.5rem;
+      }
+      p,
+      span {
+        font-size: 1.1rem;
+      }
+      .socialsIcon {
+        @include size(5rem, 5rem);
+      }
+      .formTitle {
+        width: 30%;
+      }
+      .formInput {
+        width: 70%;
+      }
+      button {
+        @include size(3rem, 3rem);
       }
     }
   }

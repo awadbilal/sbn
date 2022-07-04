@@ -38,6 +38,8 @@
 
   @media only screen and (max-width: 768px) {
     @include flexInfo(column, center, center, center);
+    border-top: 2px solid $productBorder;
+    padding-top: 1rem;
     min-height: 10rem;
     margin-bottom: 2rem;
     a,

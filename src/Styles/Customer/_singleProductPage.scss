@@ -10,6 +10,16 @@
         max-height: 79vh;
         object-fit: cover;
       }
+      .row {
+        width: 100%;
+        .imageGrp {
+          @include size(12rem, 12rem);
+          max-width: 12rem;
+          max-height: 12rem;
+          margin-bottom: 1rem;
+          object-fit: cover;
+        }
+      }
       .ant-image-mask {
         margin-bottom: 1rem;
       }
@@ -136,8 +146,61 @@
     }
   }
 
+  @media only screen and (max-width: 1400px) {
+    .topHalf {
+      .topHalfCol {
+        .row {
+          .imageGrp {
+            @include size(9rem, 9rem);
+          }
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1200px) {
+    .topHalf {
+      .topHalfCol {
+        .row {
+          .imageGrp {
+            @include size(7.5rem, 7.5rem);
+          }
+        }
+        .productInformation {
+          .addToCart,
+          .sizeDropDown {
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
+
   @media only screen and (max-width: 992px) {
     .topHalf {
+      .topHalfCol {
+        .row {
+          .imageGrp {
+            @include size(6rem, 6rem);
+          }
+        }
+        .productInformation {
+          p {
+            font-size: 1.1rem;
+            span {
+              font-size: 1rem;
+            }
+          }
+          h1 {
+            font-size: 2rem;
+          }
+          .addToCart,
+          .sizeDropDown {
+            width: 60%;
+            font-size: 1.1rem;
+          }
+        }
+      }
     }
     .bottomHalf {
       h1 {
@@ -152,6 +215,42 @@
 
   @media only screen and (max-width: 768px) {
     .topHalf {
+      .topHalfCol {
+        padding: 1rem 1rem;
+        .mainDisplay {
+          max-height: 45vh;
+        }
+        .row {
+          padding: 0;
+          .col-xxl-4,
+          .col-lg-4,
+          .col-md-4,
+          .col-sm-3,
+          .col-6 {
+            padding: 0;
+          }
+          .imageGrp {
+            @include size(9rem, 9rem);
+          }
+        }
+        .productInformation {
+          padding-left: 0;
+          p {
+            font-size: 1.1rem;
+            span {
+              font-size: 1rem;
+            }
+          }
+          h1 {
+            font-size: 2rem;
+          }
+          .addToCart,
+          .sizeDropDown {
+            width: 100%;
+            font-size: 1.1rem;
+          }
+        }
+      }
     }
     .bottomHalf {
       h1 {

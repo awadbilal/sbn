@@ -25,37 +25,28 @@ function Index() {
         at
       </p>
       <Row className='row-equal-height' align='middle'>
-        <Col md={4} lg={4} xxl={4}>
+        <Col xs={3} sm={3} md={4} lg={4} xxl={4}>
           <a href={links?.instagram} target='_blank' rel='noreferrer'>
             <Row>
-              <GrInstagram size={75} className='mb-4' />
-            </Row>
-            <Row>
-              <h4>@Splash_bynoor</h4>
+              <GrInstagram size={75} className='mb-3 socialsIcon' />
             </Row>
           </a>
         </Col>
-        <Col md={4} lg={4} xxl={4}>
+        <Col xs={3} sm={3} md={4} lg={4} xxl={4}>
           <a
             href={`https://wa.me/+90${links?.whatsapp}`}
             target='_blank'
             rel='noreferrer'
           >
             <Row>
-              <BsWhatsapp size={75} className='mb-4' />
-            </Row>
-            <Row>
-              <h4>+90 {links?.whatsapp}</h4>
+              <BsWhatsapp size={75} className='mb-3 socialsIcon' />
             </Row>
           </a>
         </Col>
-        <Col md={4} lg={4} xxl={4}>
+        <Col xs={3} sm={3} md={4} lg={4} xxl={4}>
           <a href={`mailto:${links?.email}`} target='_blank' rel='noreferrer'>
             <Row>
-              <HiOutlineMail size={75} className='mb-4' />
-            </Row>
-            <Row>
-              <h4>{links?.email}</h4>
+              <HiOutlineMail size={75} className='mb-3 socialsIcon' />
             </Row>
           </a>
         </Col>

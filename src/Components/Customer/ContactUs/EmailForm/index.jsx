@@ -90,10 +90,10 @@ function Index() {
       {formInputs.map(({ title, value, placeHolder, name, type }, i) => {
         return (
           <Row className='row-equal-height' key={`${title}${i}`}>
-            <Col md={2} lg={2} xl={2}>
+            <Col md={2} lg={2} xl={2} className='formTitle'>
               <p>{title}</p>
             </Col>
-            <Col md={5} lg={5} xl={5}>
+            <Col md={5} lg={5} xl={5} className='formInput'>
               {type === 'textarea' ? (
                 <textarea
                   placeholder={placeHolder}

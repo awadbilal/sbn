@@ -7,7 +7,7 @@ function Index() {
   return (
     <Container className='journey mt-5'>
       <Row className='row-equal-height'>
-        <Col md={8} lg={8} xxl={8}>
+        <Col xs={12} sm={12} md={12} lg={12} xxl={8}>
           <h1>The Journey!</h1>
           <p>
             It all began with a teeny tiny kid curiosity, with a{' '}
@@ -25,7 +25,7 @@ function Index() {
             idea of Splash By <span>Noor</span>.
           </p>
         </Col>
-        <Col md={4} lg={4} xxl={4} align='middle' className='mobile'>
+        <Col xs={12} sm={12} md={12} lg={12} xxl={4} align='middle'>
           <div className='imagesDiv' align='middle'>
             <img src={YellowBall} className='yellowBall' alt='Yellow Ball' />
             <img src={Painter} className='mainImage' alt='Painter' />

@@ -40,64 +40,53 @@ function Index({ data, updateData, basket, setBasket, total, setTotal }) {
   return (
     <Container className='products'>
       <h1>Products List</h1>
-
-      {data.length === 0 ? (
-        <h2 align='middle'>No Data Has Been Found</h2>
-      ) : (
-        <>
-          {data.map(
-            ({ docRef, id, title, gallery, price, discount }, index) => {
-              return (
-                <div
-                  className='itemContainer row-equal-height'
-                  align='middle'
-                  key={`${title}${id}`}
-                >
-                  <Col md={1} lg={1} xl={1} align='start'>
-                    <img src={gallery[0]} alt={title} />
-                  </Col>
-                  <Col md={8} lg={8} xl={8} align='start'>
-                    <Row>
-                      <h3>{title}</h3>
-                    </Row>
-                    <Row>
-                      <Col md={6} lg={6} xl={6}>
-                        <p>SKU - {docRef}</p>
-                      </Col>
-                      <Col>
-                        {basket[index]?.size && (
-                          <p>Size - {basket[index].size}</p>
-                        )}
-                      </Col>
-                    </Row>
-                  </Col>
-                  <Col md={2} lg={2} xl={2} className='priceContainer'>
-                    {discount !== 0 ? (
-                      <Row className='justify-content-center'>
-                        <p className='previousPrice'>{price}</p>
-                        <p>{price - (price * discount) / 100} &#8378;</p>
-                      </Row>
-                    ) : (
-                      <Row>
-                        <p>{price} &#8378;</p>
-                      </Row>
-                    )}
-                  </Col>
-                  <Col md={1} lg={1} xl={1} align='middle'>
-                    <button onClick={() => handleDelete(docRef)}>
-                      <ImCross size={30} />
-                    </button>
-                  </Col>
-                </div>
-              );
-            }
-          )}
-          <h2>
-            <span>Total: </span>
-            <span>{total} &#8378;</span>
-          </h2>
-        </>
-      )}
+      {data.map(({ docRef, id, title, gallery, price, discount }, index) => {
+        return (
+          <div
+            className='itemContainer row-equal-height'
+            align='middle'
+            key={`${title}${id}`}
+          >
+            <Col xs={3} sm={3} md={2} lg={2} xl={1} align='start'>
+              <img src={gallery[0]} alt={title} />
+            </Col>
+            <Col xs={5} sm={5} md={7} lg={7} xl={8} align='start'>
+              <Row>
+                <h3>{title}</h3>
+              </Row>
+              <Row>
+                <Col xs={8} sm={8} md={8} lg={8} xl={8} className='mobile'>
+                  <p>SKU - {docRef}</p>
+                </Col>
+                <Col>
+                  {basket[index]?.size && <p>Size - {basket[index].size}</p>}
+                </Col>
+              </Row>
+            </Col>
+            <Col xs={3} sm={3} md={2} lg={2} xl={2} className='priceContainer'>
+              {discount !== 0 ? (
+                <Row className='justify-content-center'>
+                  <p className='previousPrice'>{price}</p>
+                  <p>{price - (price * discount) / 100} &#8378;</p>
+                </Row>
+              ) : (
+                <Row>
+                  <p>{price} &#8378;</p>
+                </Row>
+              )}
+            </Col>
+            <Col xs={1} sm={1} md={1} lg={1} xl={1} align='middle'>
+              <button onClick={() => handleDelete(docRef)}>
+                <ImCross size={30} className='deleteButton' />
+              </button>
+            </Col>
+          </div>
+        );
+      })}
+      <h2>
+        <span>Total: </span>
+        <span>{total} &#8378;</span>
+      </h2>
     </Container>
   );
 }

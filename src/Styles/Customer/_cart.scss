@@ -22,8 +22,7 @@
       margin-bottom: 2rem;
       padding: 0.5rem;
       img {
-        width: 6rem;
-        height: 6rem;
+        @include size(6rem, 6rem);
         object-fit: cover;
       }
       h3 {
@@ -112,37 +111,34 @@
       height: 5rem;
       padding-top: 1rem;
     }
-    span {
-      font-weight: 600;
-      font-size: 1.5rem;
-      color: $pink;
-    }
   }
-  .submitButton {
-    h1 {
+  .buttonContainer {
+    span {
       font-weight: 600;
       font-size: 2.5rem;
       line-height: 4.5rem;
-      color: $lightBlue;
+      color: $pink;
       margin-bottom: 2rem;
     }
-    background-color: transparent;
-    border: 3px solid $pink;
-    color: $pink;
-    border-radius: 50%;
-    width: 5rem;
-    height: 5rem;
-    margin: 2rem 1rem;
-    &:hover {
-      border: 3px solid $lightBlue;
-      color: $lightBlue;
-      box-shadow: none;
-      outline: none;
+    .submitButton {
+      background-color: transparent;
+      border: 3px solid $pink;
+      color: $pink;
+      border-radius: 50%;
+      width: 5rem;
+      height: 5rem;
+      margin: 2rem 1rem;
+      &:hover {
+        border: 3px solid $lightBlue;
+        color: $lightBlue;
+        box-shadow: none;
+        outline: none;
+      }
     }
   }
 
   #noProducts {
-    @include size(100%, 86vh);
+    @include size(100%, 88vh);
     @include flexInfo(column, center, center, center);
     background: url(../../images/heroSection.jpg) no-repeat 84%;
     background-size: cover;
@@ -174,6 +170,129 @@
       text-align: center;
       &:hover {
         background-color: $lightBlue;
+      }
+    }
+
+    @media only screen and (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+        line-height: 2.5rem;
+      }
+      p,
+      button {
+        font-size: 1.1rem;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1200px) {
+    .products,
+    .emailForm {
+      h1 {
+        font-size: 2rem;
+        line-height: 2.5rem;
+      }
+      h2 {
+        font-size: 1.8rem;
+        line-height: 2.25rem;
+      }
+      p,
+      button {
+        font-size: 1.5rem;
+      }
+    }
+    .products {
+      .itemContainer {
+        img {
+          @include size(7rem, 7rem);
+        }
+        h3 {
+          font-size: 1.5rem;
+          line-height: 2rem;
+        }
+        .priceContainer {
+          p {
+            font-size: 1.5rem;
+          }
+          .previousPrice {
+            font-size: 1rem;
+          }
+        }
+      }
+      button {
+        .deleteButton {
+          @include size(1.5rem, 1.5rem);
+        }
+      }
+    }
+    .buttonContainer {
+      span {
+        font-size: 2rem;
+        line-height: 2.5rem;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .products,
+    .emailForm {
+      h1 {
+        font-size: 2rem;
+        line-height: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+      }
+      p,
+      button {
+        font-size: 1.1rem;
+      }
+    }
+    .products {
+      padding: 0 1rem;
+      .itemContainer {
+        .mobile {
+          display: none;
+        }
+        img {
+          @include size(4rem, 4rem);
+        }
+        h3 {
+          font-size: 1.2rem;
+          line-height: 1.5rem;
+        }
+        .priceContainer {
+          p {
+            font-size: 1.1rem;
+          }
+          .previousPrice {
+            font-size: 0.8rem;
+          }
+        }
+      }
+      button {
+        .deleteButton {
+          @include size(1rem, 1rem);
+        }
+      }
+    }
+    .emailForm {
+      p {
+        margin-bottom: 0.5rem;
+      }
+      textarea {
+        height: 7rem;
+      }
+    }
+    .buttonContainer {
+      span {
+        font-size: 1.5rem;
+        line-height: 2rem;
+      }
+      .submitButton {
+        @include size(3rem, 3rem);
       }
     }
   }

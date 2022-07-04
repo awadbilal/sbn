@@ -9,7 +9,7 @@ function Index({ title, icon, info }) {
         <Col md={2} lg={2} xxl={2} align='middle'>
           <img src={icon} alt={title} />
         </Col>
-        <Col md={9} lg={9} xxl={9}>
+        <Col xs={12} sm={12} md={9} lg={9} xxl={9}>
           <p>{info}</p>
         </Col>
       </Row>

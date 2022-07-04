@@ -113,7 +113,7 @@ function Index({ docRef, id, title, price, discount, sizes }) {
       {!user && (
         <p>
           <MdErrorOutline size={25} color='#ee3364' className='me-3' />
-          <span>Please Log-in or Sign-up to add to cart</span>
+          <span>Please Login to add to cart</span>
         </p>
       )}
     </div>

@@ -150,7 +150,7 @@ function Index() {
             setFormData={setFormData}
             handleChange={handleChange}
           />
-          <Container>
+          <Container className='buttonContainer'>
             <span>
               <button onClick={handleClick} className='submitButton'>
                 <BsArrowRight size={30} />
@@ -164,7 +164,7 @@ function Index() {
           <h1>
             Splash by <span>Noor.</span>
           </h1>
-          <p>No products has been added to basket yet 😢</p>
+          <p>😢 No products has been added to basket yet 😢</p>
           <button onClick={() => navigate('/shop')}>Start Shopping Now</button>
         </Container>
       )}

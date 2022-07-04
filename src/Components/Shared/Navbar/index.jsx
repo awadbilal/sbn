@@ -113,7 +113,7 @@ const Index = () => {
                         'highlight' + (url === '/account' ? ' active' : '')
                       }
                     >
-                      <RiAccountCircleLine className='icon' size='4rem' />
+                      <RiAccountCircleLine className='icon' size='3.2rem' />
                     </Link>
                     <Link
                       to='/cart'
@@ -121,7 +121,7 @@ const Index = () => {
                         'highlight' + (url === '/cart' ? ' active' : '')
                       }
                     >
-                      <RiShoppingBagFill className='icon' size='4rem' />
+                      <RiShoppingBagFill className='icon' size='3.2rem' />
                     </Link>
                   </>
                 ) : (

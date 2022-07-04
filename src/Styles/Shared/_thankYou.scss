@@ -41,4 +41,19 @@
       }
     }
   }
+
+  @media only screen and (max-width: 768px) {
+    .innerContainer {
+      padding: 0 1rem;
+      h1 {
+        font-size: 2rem;
+        line-height: 2.5rem;
+      }
+      p,
+      button {
+        text-align: center;
+        font-size: 1.1rem;
+      }
+    }
+  }
 }

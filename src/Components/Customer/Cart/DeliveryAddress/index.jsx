@@ -66,12 +66,12 @@ function Index({ formData, handleChange }) {
     <Container className='emailForm mt-5 mb-4'>
       <h1>Delivery Address Information</h1>
       <Row>
-        <Col md={5} lg={5} xl={5} className='pe-3 ps-0'>
+        <Col xs={12} sm={12} md={6} lg={6} xl={6} className='pe-0 ps-0'>
           <Row className='row-equal-height'>
-            <Col md={3} lg={3} xl={3}>
+            <Col xs={12} sm={5} md={4} lg={3} xl={3}>
               <p className='mt-2'>Name</p>
             </Col>
-            <Col md={8} lg={8} xl={8}>
+            <Col xs={12} sm={6} md={7} lg={8} xl={8}>
               <input
                 type='text'
                 placeholder='e.g. John'
@@ -82,12 +82,12 @@ function Index({ formData, handleChange }) {
             </Col>
           </Row>
         </Col>
-        <Col md={5} lg={5} xl={5} className='pe-3'>
+        <Col xs={12} sm={12} md={6} lg={6} xl={6} className='pe-0 ps-0'>
           <Row className='row-equal-height'>
-            <Col md={3} lg={3} xl={3}>
+            <Col xs={12} sm={5} md={4} lg={4} xl={4}>
               <p className='mt-2'>Surname</p>
             </Col>
-            <Col md={8} lg={8} xl={8}>
+            <Col xs={12} sm={7} md={8} lg={8} xl={8}>
               <input
                 type='text'
                 placeholder='e.g. Doe'
@@ -102,10 +102,10 @@ function Index({ formData, handleChange }) {
       {formInputs.map(({ title, value, placeHolder, name, type }, i) => {
         return (
           <Row className='row-equal-height' key={`${title}${i}`}>
-            <Col md={3} lg={3} xl={3}>
+            <Col xs={12} sm={5} md={4} lg={3} xl={3}>
               <p className='mt-2'>{title}</p>
             </Col>
-            <Col md={8} lg={8} xl={8}>
+            <Col xs={12} sm={7} md={8} lg={9} xl={9}>
               {type === 'textarea' ? (
                 <textarea
                   placeholder={placeHolder}
