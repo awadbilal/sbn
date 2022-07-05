@@ -21,6 +21,7 @@ import {
 } from 'firebase/firestore';
 import { db, storage } from '../../../firebaseconfig';
 import { v4 } from 'uuid';
+import { useForm } from 'antd/lib/form/Form';
 
 const { TextArea } = Input;
 
@@ -31,7 +32,7 @@ function Index() {
   const [previewTitle, setPreviewTitle] = useState('');
   const [fileList, setFileList] = useState([]);
   const [files, setFiles] = useState([]);
-  const [form] = Form.useForm();
+  const [form] = useForm();
 
   const normFile = (e) => {
     if (Array.isArray(e)) return e;
@@ -56,8 +57,9 @@ function Index() {
 
     await addDoc(collection(db, 'products'), formData)
       .then((resp) => {
-        message.success('Product has been added successfully.');
         form.resetFields();
+        setFiles([]);
+        message.success('Product has been added successfully.');
       })
       .catch((err) => message.error('An error occured!'));
   };
