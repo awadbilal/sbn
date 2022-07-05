@@ -66,7 +66,7 @@ function Index() {
     }
     const q = query(collection(db, 'orders'), orderBy('id', 'desc'));
     const querySnapshot = await getDocs(q);
-    const docRef = await addDoc(collection(db, 'orders'), {
+    await addDoc(collection(db, 'orders'), {
       id:
         Array.isArray(querySnapshot?.docs) && querySnapshot?.docs.length !== 0
           ? querySnapshot.docs[0].data().id + 1

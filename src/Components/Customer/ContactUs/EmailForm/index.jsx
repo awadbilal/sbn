@@ -7,6 +7,7 @@ import {
   query,
 } from 'firebase/firestore';
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { BsArrowRight } from 'react-icons/bs';
 import { db } from '../../../../firebaseconfig';
@@ -18,6 +19,17 @@ function Index() {
     subject: '',
     message: '',
   });
+
+  useEffect(() => {
+    const userInfo = JSON.parse(localStorage.getItem('user'));
+    if (userInfo) {
+      setFormData({
+        ...formData,
+        name: `${userInfo.name} ${userInfo.surname}`,
+        email: `${userInfo.email}`,
+      });
+    }
+  }, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -34,7 +46,7 @@ function Index() {
     console.log('🚀 ~ file: index.jsx ~ line 28 ~ handleClick ~ date', date);
     const q = query(collection(db, 'messages'), orderBy('id', 'desc'));
     const querySnapshot = await getDocs(q);
-    const docRef = await addDoc(collection(db, 'messages'), {
+    await addDoc(collection(db, 'messages'), {
       ...formData,
       date: `${new Date()}`,
       id:
