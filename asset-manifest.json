@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/sbn/static/css/main.b8377de1.css",
+    "main.js": "/sbn/static/js/main.7626e298.js",
+    "static/js/787.b4ec7fce.chunk.js": "/sbn/static/js/787.b4ec7fce.chunk.js",
+    "static/media/aboutUs.jpg": "/sbn/static/media/aboutUs.5c6bcb3d9b10d6589c68.jpg",
+    "static/media/fallBackImage.png": "/sbn/static/media/fallBackImage.a9297c3bf7734c79e871.png",
+    "static/media/intro1.jpg": "/sbn/static/media/intro1.0dfaf4483484cd666316.jpg",
+    "static/media/heroSection.jpg": "/sbn/static/media/heroSection.3bea2d21e921bac4b22f.jpg",
+    "static/media/intro2.jpg": "/sbn/static/media/intro2.890c68b3d1d6b0692096.jpg",
+    "static/media/mission.png": "/sbn/static/media/mission.724e81700e348f354f98.png",
+    "static/media/sadLogout.gif": "/sbn/static/media/sadLogout.77d842803e52ad1ecd6c.gif",
+    "static/media/vision.png": "/sbn/static/media/vision.6b251d6fe7c1ddae46af.png",
+    "index.html": "/sbn/index.html",
+    "main.b8377de1.css.map": "/sbn/static/css/main.b8377de1.css.map",
+    "main.7626e298.js.map": "/sbn/static/js/main.7626e298.js.map",
+    "787.b4ec7fce.chunk.js.map": "/sbn/static/js/787.b4ec7fce.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b8377de1.css",
+    "static/js/main.7626e298.js"
+  ]
+}
