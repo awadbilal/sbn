@@ -57,14 +57,14 @@ function Index() {
 
   return (
     <Container id='settings' className='mt-2 ps-3 pe-3'>
-      <h1 className='mb-5'>Edit Profile Information</h1>
+      <h1 className='mt-3 mb-4'>Edit Profile Information</h1>
       <Row className='row-equal-height m-0 p-0'>
-        <Col md={6} lg={6} xl={6}>
+        <Col xs={12} sm={6} md={6} lg={6} xl={6}>
           <Row className='row-equal-height m-0 p-0'>
-            <Col md={3} lg={3} xl={3}>
+            <Col xs={12} sm={5} md={4} lg={3} xl={3} className='pt-2'>
               <p>Name</p>
             </Col>
-            <Col md={9} lg={9} xl={9}>
+            <Col xs={12} sm={7} md={8} lg={9} xl={9}>
               <input
                 disabled={formDisabled}
                 type='text'
@@ -76,12 +76,12 @@ function Index() {
             </Col>
           </Row>
         </Col>
-        <Col md={6} lg={6} xl={6}>
+        <Col xs={12} sm={6} md={6} lg={6} xl={6}>
           <Row className='row-equal-height m-0 p-0'>
-            <Col md={3} lg={3} xl={3}>
+            <Col xs={12} sm={5} md={4} lg={3} xl={3} className='pt-2'>
               <p>Surname</p>
             </Col>
-            <Col md={9} lg={9} xl={9}>
+            <Col xs={12} sm={7} md={8} lg={9} xl={9}>
               <input
                 disabled={formDisabled}
                 type='text'
@@ -93,12 +93,12 @@ function Index() {
             </Col>
           </Row>
         </Col>
-        <Col md={6} lg={6} xl={6}>
+        <Col xs={12} sm={6} md={6} lg={6} xl={6}>
           <Row className='row-equal-height m-0 p-0'>
-            <Col md={3} lg={3} xl={3}>
+            <Col xs={12} sm={5} md={4} lg={3} xl={3} className='pt-2'>
               <p>Email</p>
             </Col>
-            <Col md={9} lg={9} xl={9}>
+            <Col xs={12} sm={7} md={8} lg={9} xl={9}>
               <input
                 disabled={true}
                 type='email'
@@ -110,12 +110,12 @@ function Index() {
             </Col>
           </Row>
         </Col>
-        <Col md={6} lg={6} xl={6}>
+        <Col xs={12} sm={6} md={6} lg={6} xl={6}>
           <Row className='row-equal-height m-0 p-0'>
-            <Col md={3} lg={3} xl={3}>
+            <Col xs={12} sm={5} md={4} lg={3} xl={3} className='pt-2'>
               <p>Phone</p>
             </Col>
-            <Col md={9} lg={9} xl={9}>
+            <Col xs={12} sm={7} md={8} lg={9} xl={9}>
               <input
                 disabled={formDisabled}
                 type='number'
@@ -127,12 +127,12 @@ function Index() {
             </Col>
           </Row>
         </Col>
-        <Col md={6} lg={6} xl={6}>
+        <Col xs={12} sm={6} md={6} lg={6} xl={6}>
           <Row className='row-equal-height m-0 p-0'>
-            <Col md={3} lg={3} xl={3}>
+            <Col xs={12} sm={5} md={4} lg={3} xl={3} className='pt-2'>
               <p>City</p>
             </Col>
-            <Col md={9} lg={9} xl={9}>
+            <Col xs={12} sm={7} md={8} lg={9} xl={9}>
               <input
                 disabled={formDisabled}
                 type='text'
@@ -144,12 +144,12 @@ function Index() {
             </Col>
           </Row>
         </Col>
-        <Col md={6} lg={6} xl={6}>
+        <Col xs={12} sm={6} md={6} lg={6} xl={6}>
           <Row className='row-equal-height m-0 p-0'>
-            <Col md={3} lg={3} xl={3}>
+            <Col xs={12} sm={5} md={4} lg={3} xl={3} className='pt-2'>
               <p>Province</p>
             </Col>
-            <Col md={9} lg={9} xl={9}>
+            <Col xs={12} sm={7} md={8} lg={9} xl={9}>
               <input
                 disabled={formDisabled}
                 type='text'
@@ -161,12 +161,12 @@ function Index() {
             </Col>
           </Row>
         </Col>
-        <Col md={6} lg={6} xl={6}>
+        <Col xs={12} sm={6} md={6} lg={6} xl={6}>
           <Row className='row-equal-height m-0 p-0'>
-            <Col md={3} lg={3} xl={3}>
+            <Col xs={12} sm={5} md={4} lg={3} xl={3} className='pt-2'>
               <p>Street</p>
             </Col>
-            <Col md={9} lg={9} xl={9}>
+            <Col xs={12} sm={7} md={8} lg={9} xl={9}>
               <input
                 disabled={formDisabled}
                 type='text'
@@ -178,12 +178,12 @@ function Index() {
             </Col>
           </Row>
         </Col>
-        <Col md={6} lg={6} xl={6}>
+        <Col xs={12} sm={6} md={6} lg={6} xl={6}>
           <Row className='row-equal-height m-0 p-0'>
-            <Col md={3} lg={3} xl={3}>
+            <Col xs={12} sm={5} md={4} lg={3} xl={3} className='pt-2'>
               <p>Building</p>
             </Col>
-            <Col md={9} lg={9} xl={9}>
+            <Col xs={12} sm={7} md={8} lg={9} xl={9}>
               <input
                 disabled={formDisabled}
                 type='text'
@@ -195,12 +195,12 @@ function Index() {
             </Col>
           </Row>
         </Col>
-        <Col md={6} lg={6} xl={6}>
+        <Col xs={12} sm={6} md={12} lg={12} xl={12}>
           <Row className='row-equal-height m-0 p-0'>
-            <Col md={3} lg={3} xl={3}>
+            <Col xs={12} sm={5} md={4} lg={3} xl={3} className='pt-2'>
               <p>Apartment</p>
             </Col>
-            <Col md={9} lg={9} xl={9}>
+            <Col xs={12} sm={7} md={8} lg={9} xl={9}>
               <input
                 disabled={formDisabled}
                 type='text'
@@ -212,12 +212,12 @@ function Index() {
             </Col>
           </Row>
         </Col>
-        <Col md={12} lg={12} xl={12}>
+        <Col xs={12} sm={6} md={12} lg={12} xl={12}>
           <Row className='row-equal-height m-0 p-0'>
-            <Col md={3} lg={3} xl={3}>
+            <Col xs={12} sm={5} md={4} lg={3} xl={3} className='pt-2'>
               <p>Full Address</p>
             </Col>
-            <Col md={9} lg={9} xl={9}>
+            <Col xs={12} sm={7} md={8} lg={9} xl={9}>
               <textarea
                 disabled={formDisabled}
                 placeholder='İSTANBUL / TÜRKİYE, 34353 Beşiktaş, Çırağan Caddesi, Osmanpaşa Mektebi Sokak, Bina 16, Daire 16'
@@ -231,18 +231,18 @@ function Index() {
       </Row>
 
       <Row className='row-equal-height m-0 p-0'>
-        <Col md={6} lg={6} xl={6}>
+        <Col xs={12} sm={6} md={6} lg={6} xl={6} className='firstButton'>
           <span>
             <button onClick={() => setFormDisabled(!formDisabled)}>
-              <AiOutlineEdit size={30} />
+              <AiOutlineEdit size={30} className='buttonIcon' />
             </button>{' '}
             Edit
           </span>
         </Col>
-        <Col md={6} lg={6} xl={6} className='text-end'>
+        <Col xs={12} sm={6} md={6} lg={6} xl={6} className='secondButton'>
           <span>
             <button onClick={handleClick} disabled={formDisabled}>
-              <BsArrowRight size={30} />
+              <BsArrowRight size={30} className='buttonIcon' />
             </button>{' '}
             Submit
           </span>

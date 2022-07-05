@@ -1,11 +1,10 @@
 #authentication {
-  @include size(100%, 86vh);
+  @include size(100%, 88vh);
   @include flexInfo(column, center, center, center);
   background: url(../../images/heroSection.jpg) no-repeat 84%;
   background-size: cover;
   .tabsPane {
-    width: 40vw;
-    height: fit-content;
+    @include size(30vw, fit-content);
     border: none;
     @include flexInfo(row, space-around, center, center);
     .nav-item {
@@ -35,11 +34,10 @@
     }
   }
   .tab-content {
+    @include size(30vw, 70vh);
     padding: 3rem 2rem;
     margin: 0;
-    width: 40vw;
     background-color: rgba(254, 183, 165, 1);
-    height: 70vh;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     .login {
@@ -52,8 +50,7 @@
         color: $primaryColor;
       }
       input {
-        width: 100%;
-        height: 3rem;
+        @include size(100%, 3rem);
         padding-left: 1.5rem;
         border: 2px solid $pink;
         border-radius: 10px;
@@ -65,19 +62,67 @@
         }
       }
       button {
+        @include size(100%, 3rem);
         background-color: $pink;
         border: none;
         border-radius: 10px;
         font-weight: 600;
         font-size: 1.5rem;
         color: $primaryColor;
-        width: 100%;
-        height: 3rem;
         margin-top: 2rem;
+        color: #ffffff;
         &:hover {
           background-color: $lightBlue;
           box-shadow: none;
           outline: none;
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1660px) {
+    .tabsPane,
+    .tab-content {
+      width: 40vw;
+    }
+  }
+
+  @media only screen and (max-width: 1200px) {
+    .tabsPane {
+      width: 50vw;
+    }
+    .tab-content {
+      width: 50vw;
+      .login {
+        p,
+        button {
+          font-size: 1.25rem;
+          line-height: 1rem;
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .tabsPane {
+      width: 90vw;
+    }
+    .tab-content {
+      @include size(90vw, 70vh);
+      max-height: 70vh;
+      overflow: scroll;
+      .login {
+        p,
+        button {
+          font-size: 1.1rem;
+        }
+        button {
+          margin-top: 1rem;
+        }
+        .row {
+          .col-12 {
+            padding-left: 0 !important;
+          }
         }
       }
     }

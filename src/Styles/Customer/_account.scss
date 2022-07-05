@@ -52,7 +52,8 @@
   }
 
   #settings {
-    max-height: 83vh;
+    padding-top: 1rem;
+    max-height: 87vh;
     h1 {
       font-weight: 500;
       font-size: 2.5rem;
@@ -69,8 +70,7 @@
     }
     input,
     textarea {
-      width: 100%;
-      height: 3rem;
+      @include size(100%, 3rem);
       padding-left: 1.5rem;
       border: 2px solid $pink;
       border-radius: 10px;
@@ -91,12 +91,11 @@
       color: $pink;
     }
     button {
+      @include size(5rem, 5rem);
       background-color: transparent;
       border: 3px solid $pink;
       color: $pink;
       border-radius: 50%;
-      width: 5rem;
-      height: 5rem;
       margin: 2rem 1rem;
       &:hover {
         border: 3px solid $lightBlue;
@@ -113,6 +112,46 @@
           box-shadow: none;
           outline: none;
         }
+      }
+    }
+    .secondButton {
+      text-align: end;
+    }
+
+    @media only screen and (max-width: 1200px) {
+      h1 {
+        font-size: 2rem;
+        line-height: 2.5rem;
+      }
+      p,
+      span {
+        font-size: 1.25rem;
+      }
+    }
+
+    @media only screen and (max-width: 768px) {
+      overflow: scroll;
+      p,
+      span {
+        font-size: 1.1rem;
+      }
+      p {
+        margin-bottom: 0.5rem;
+      }
+      input,
+      textarea {
+        margin-bottom: 1rem;
+      }
+      button {
+        @include size(3rem, 3rem);
+        margin: 1rem 1rem 1rem 2rem;
+        .buttonIcon {
+          @include size(1.5rem, 1.5rem);
+        }
+      }
+      .secondButton,
+      .firstButton {
+        text-align: start;
       }
     }
   }

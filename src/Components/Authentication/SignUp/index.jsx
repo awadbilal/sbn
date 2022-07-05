@@ -84,7 +84,7 @@ function Index({ signUpData, setSignUpData, setUser }) {
     <div className='login'>
       <div>
         <Row className='m-0 p-0 row-equal-height'>
-          <Col className='m-0 p-0 pe-2 pb-4' md={6} lg={6} xxl={6}>
+          <Col className='m-0 p-0 pe-2 pb-4' xs={12} md={6} lg={6} xxl={6}>
             <p className='mb-3'>Name</p>
             <input
               type='text'
@@ -94,7 +94,7 @@ function Index({ signUpData, setSignUpData, setUser }) {
               name='name'
             />
           </Col>
-          <Col className='m-0 p-0 ps-2 pb-4' md={6} lg={6} xxl={6}>
+          <Col className='m-0 p-0 ps-0 ps-2 pb-4' xs={12} md={6} lg={6} xxl={6}>
             <p className='mb-3'>Surname</p>
             <input
               type='text'
@@ -122,7 +122,7 @@ function Index({ signUpData, setSignUpData, setUser }) {
           name='email'
         />
         <Row className='m-0 p-0 row-equal-height'>
-          <Col className='m-0 p-0 pe-2 pb-4' md={6} lg={6} xxl={6}>
+          <Col className='m-0 p-0 pe-2 pb-4' xs={12} md={6} lg={6} xxl={6}>
             <p className='mt-4 mb-3'>Password</p>
             <input
               type='password'
@@ -132,7 +132,7 @@ function Index({ signUpData, setSignUpData, setUser }) {
               name='password'
             />
           </Col>
-          <Col className='m-0 p-0 ps-2 pb-4' md={6} lg={6} xxl={6}>
+          <Col className='m-0 p-0 ps-2 pb-4' xs={12} md={6} lg={6} xxl={6}>
             <p className='mt-4 mb-3'>Password Repeat</p>
             <input
               type='password'

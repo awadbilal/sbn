@@ -22,7 +22,7 @@ function Index() {
   // The following listens for the data live and print it.
   useEffect(() => {
     const q = query(collection(db, 'products'), orderBy('id'));
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+    onSnapshot(q, (querySnapshot) => {
       const products = [];
       querySnapshot.forEach((doc) => {
         products.push({
@@ -63,15 +63,18 @@ function Index() {
       dataIndex: 'gallery',
       key: 'gallery',
       render: (gallery) => (
-        <img src={gallery[0]} style={{ maxWidth: '75px', maxHeight: '75px' }} />
+        <img
+          src={gallery[0]}
+          alt='image preview'
+          style={{ maxWidth: '75px', maxHeight: '75px' }}
+        />
       ),
-      width: '10%',
+      width: '7%',
     },
     {
       title: 'Title',
       dataIndex: 'title',
       key: 'title',
-      render: (title) => <a>{title}</a>,
     },
     {
       title: 'Category',
@@ -204,6 +207,7 @@ function Index() {
         pagination={{
           pageSize: 10,
           hideOnSinglePage: true,
+          position: ['none', 'bottomCenter'],
         }}
         scroll={{
           y: '82.5vh',

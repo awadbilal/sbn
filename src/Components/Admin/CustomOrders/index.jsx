@@ -11,7 +11,7 @@ function Index() {
 
   useEffect(() => {
     const q = query(collection(db, 'customOrders'), orderBy('id'));
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+    onSnapshot(q, (querySnapshot) => {
       const orders = [];
       querySnapshot.forEach((doc) => {
         orders.push(doc.data());
@@ -40,7 +40,11 @@ function Index() {
       dataIndex: 'image',
       key: 'image',
       render: (image) => (
-        <img src={image} style={{ maxWidth: '75px', maxHeight: '75px' }} />
+        <img
+          src={image}
+          alt='image preview'
+          style={{ maxWidth: '75px', maxHeight: '75px' }}
+        />
       ),
       width: '10%',
     },

@@ -8,6 +8,7 @@ import { db } from '../../../../firebaseconfig';
 function Index() {
   const [dataToRender, setDataToRender] = useState();
   const [activeExpRow, setActiveExpRow] = React.useState();
+  const [scroll, setScroll] = useState();
 
   useEffect(() => {
     (async () => {
@@ -27,6 +28,17 @@ function Index() {
         setDataToRender([]);
       }
     })();
+
+    if (window.innerWidth < 992)
+      setScroll({
+        x: '100vw',
+        y: '74vh',
+      });
+    else {
+      setScroll({
+        y: '74vh',
+      });
+    }
   }, []);
 
   const modifiedData = dataToRender?.map((item) => ({
@@ -39,28 +51,22 @@ function Index() {
       title: 'ID',
       dataIndex: 'id',
       key: 'id',
-      width: '5%',
+      width: 50,
       sorter: {
         compare: (a, b) => a.id - b.id,
       },
     },
     {
-      title: 'Order by',
-      dataIndex: 'customer',
-      key: 'customer',
-      width: '13%',
-    },
-    {
       title: 'Email',
       dataIndex: 'email',
       key: 'email',
-      width: '13%',
+      width: 100,
     },
     {
       title: 'Phone Number',
       dataIndex: 'phone',
       key: 'phone',
-      width: '10%',
+      width: 100,
     },
     {
       title: 'Price',
@@ -70,26 +76,26 @@ function Index() {
       sorter: {
         compare: (a, b) => a.totalPrice - b.totalPrice,
       },
-      width: '8%',
+      width: 100,
     },
     {
       title: 'Delivery Address',
       dataIndex: 'deliveryAddress',
       key: 'deliveryAddress',
-      width: '20%',
+      width: 200,
     },
     {
       title: 'Date of Purchase',
       dataIndex: 'date',
       key: 'date',
       render: (date) => <span>{date?.substring(0, 25)}</span>,
-      width: '15%',
+      width: 100,
     },
     {
       title: 'Order id',
       dataIndex: 'docRef',
       key: 'docRef',
-      width: '16%',
+      width: 100,
     },
   ];
 
@@ -103,10 +109,9 @@ function Index() {
         pagination={{
           pageSize: 10,
           hideOnSinglePage: true,
+          position: ['none', 'bottomCenter'],
         }}
-        scroll={{
-          y: '74vh',
-        }}
+        scroll={scroll}
         style={{ padding: '1.5rem 1.5rem 1.5rem 1.5rem' }}
         expandable={{
           expandedRowRender: (item) => <SingleOrder item={item.products} />,

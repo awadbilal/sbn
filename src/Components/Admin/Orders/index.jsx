@@ -11,7 +11,7 @@ function Index() {
 
   useEffect(() => {
     const q = query(collection(db, 'orders'), orderBy('id'));
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+    onSnapshot(q, (querySnapshot) => {
       const orders = [];
       querySnapshot.forEach((doc) => {
         orders.push(doc.data());
@@ -98,6 +98,7 @@ function Index() {
         pagination={{
           pageSize: 10,
           hideOnSinglePage: true,
+          position: ['none', 'bottomCenter'],
         }}
         scroll={{
           y: '82.5vh',

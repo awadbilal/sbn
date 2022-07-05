@@ -73,6 +73,7 @@ function Index() {
         pagination={{
           pageSize: 10,
           hideOnSinglePage: true,
+          position: ['none', 'bottomCenter'],
         }}
         scroll={{
           y: '82.5vh',

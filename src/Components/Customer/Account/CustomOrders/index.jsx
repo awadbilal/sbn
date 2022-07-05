@@ -8,6 +8,7 @@ import { db } from '../../../../firebaseconfig';
 function Index() {
   const [dataToRender, setDataToRender] = useState();
   const [activeExpRow, setActiveExpRow] = React.useState();
+  const [scroll, setScroll] = useState();
 
   useEffect(() => {
     (async () => {
@@ -27,6 +28,17 @@ function Index() {
         setDataToRender([]);
       }
     })();
+
+    if (window.innerWidth < 992)
+      setScroll({
+        x: '100vw',
+        y: '74vh',
+      });
+    else {
+      setScroll({
+        y: '74vh',
+      });
+    }
   }, []);
 
   const modifiedData = dataToRender?.map((item) => ({
@@ -39,7 +51,7 @@ function Index() {
       title: 'ID',
       dataIndex: 'id',
       key: 'id',
-      width: '5%',
+      width: 50,
       sorter: {
         compare: (a, b) => a.id - b.id,
       },
@@ -49,40 +61,38 @@ function Index() {
       dataIndex: 'image',
       key: 'image',
       render: (image) => (
-        <img src={image} style={{ maxWidth: '75px', maxHeight: '75px' }} />
+        <img
+          src={image}
+          alt='image preview'
+          style={{ maxWidth: '75px', maxHeight: '75px' }}
+        />
       ),
-      width: '8%',
-    },
-    {
-      title: 'Order By',
-      dataIndex: 'customer',
-      key: 'customer',
-      width: '13%',
+      width: 100,
     },
     {
       title: 'Email',
       dataIndex: 'email',
       key: 'email',
-      width: '13%',
+      width: 100,
     },
     {
       title: 'Message',
       dataIndex: 'message',
       key: 'message',
-      width: '30%',
+      width: 150,
     },
     {
       title: 'Date of Order',
       dataIndex: 'date',
       key: 'date',
       render: (date) => <span>{date?.substring(0, 25)}</span>,
-      width: '15%',
+      width: 100,
     },
     {
       title: 'Order id',
       dataIndex: 'docRef',
       key: 'docRef',
-      width: '16%',
+      width: 100,
     },
   ];
 
@@ -96,10 +106,9 @@ function Index() {
         pagination={{
           pageSize: 10,
           hideOnSinglePage: true,
+          position: ['none', 'bottomCenter'],
         }}
-        scroll={{
-          y: '82.5vh',
-        }}
+        scroll={scroll}
         style={{ padding: '1.5rem 1.5rem 1.5rem 1.5rem' }}
         expandable={{
           expandedRowRender: (item) => <SingleOrder item={item.image} />,

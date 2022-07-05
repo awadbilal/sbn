@@ -11,7 +11,7 @@ function Index() {
   // The following listens for the data live and print it.
   useEffect(() => {
     const q = query(collection(db, 'users'));
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+    onSnapshot(q, (querySnapshot) => {
       const users = [];
       querySnapshot.forEach((doc) => {
         users.push(doc.data());
@@ -117,6 +117,7 @@ function Index() {
         pagination={{
           pageSize: 10,
           hideOnSinglePage: true,
+          position: ['none', 'bottomCenter'],
         }}
         scroll={{
           y: '82.5vh',
